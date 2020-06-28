@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Text-Medium.otf">
+            <string>SFProText-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="ItemCollectionViewCell" id="gTV-IL-0wX" customClass="ItemCollectionViewCell" customModule="CelatoFashion" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="179" height="375"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="179" height="375"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MUC-iK-TAf">
+                        <rect key="frame" x="0.0" y="0.0" width="179" height="373"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="Product 1" translatesAutoresizingMaskIntoConstraints="NO" id="pwB-oh-4qN">
+                                <rect key="frame" x="0.0" y="0.0" width="179" height="327"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moncler Short " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mm-0l-nTT">
+                                <rect key="frame" x="0.0" y="332" width="179" height="18"/>
+                                <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="15"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="230£" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43b-Om-PwA">
+                                <rect key="frame" x="0.0" y="355" width="179" height="18"/>
+                                <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="15"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="pwB-oh-4qN" firstAttribute="trailing" secondItem="MUC-iK-TAf" secondAttribute="trailing" id="E47-KA-KIo"/>
+                            <constraint firstItem="43b-Om-PwA" firstAttribute="trailing" secondItem="MUC-iK-TAf" secondAttribute="trailing" id="EfD-An-j7O"/>
+                            <constraint firstItem="43b-Om-PwA" firstAttribute="leading" secondItem="MUC-iK-TAf" secondAttribute="leading" id="Nac-aO-Alc"/>
+                            <constraint firstItem="pwB-oh-4qN" firstAttribute="leading" secondItem="MUC-iK-TAf" secondAttribute="leading" id="RZ7-rH-ksS"/>
+                            <constraint firstItem="43b-Om-PwA" firstAttribute="bottom" secondItem="MUC-iK-TAf" secondAttribute="bottom" id="Rmn-ny-B3o"/>
+                            <constraint firstItem="pwB-oh-4qN" firstAttribute="top" secondItem="MUC-iK-TAf" secondAttribute="top" id="c9c-fk-tDA"/>
+                            <constraint firstItem="1mm-0l-nTT" firstAttribute="trailing" secondItem="MUC-iK-TAf" secondAttribute="trailing" id="cgM-SN-MZp"/>
+                            <constraint firstItem="1mm-0l-nTT" firstAttribute="leading" secondItem="MUC-iK-TAf" secondAttribute="leading" id="eVe-SV-HWP"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="MUC-iK-TAf" firstAttribute="trailing" secondItem="gTV-IL-0wX" secondAttribute="trailing" id="11A-Xm-8I5"/>
+                <constraint firstItem="MUC-iK-TAf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="98C-KC-pzG"/>
+                <constraint firstItem="MUC-iK-TAf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Bko-Bn-w5z"/>
+                <constraint firstItem="MUC-iK-TAf" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottom" constant="-2" id="nTq-Yq-DsA"/>
+                <constraint firstItem="MUC-iK-TAf" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="r4Y-7I-AAF"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="179" height="375"/>
+            <connections>
+                <outlet property="itemImage" destination="pwB-oh-4qN" id="nUT-NU-hgY"/>
+                <outlet property="itemName" destination="1mm-0l-nTT" id="6zO-WV-auJ"/>
+                <outlet property="itemPrice" destination="43b-Om-PwA" id="s5e-dU-tJk"/>
+                <outlet property="stackView" destination="MUC-iK-TAf" id="v5N-sI-2dD"/>
+            </connections>
+            <point key="canvasLocation" x="231.15942028985509" y="242.74553571428569"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Product 1" width="160" height="230"/>
+    </resources>
+</document>
