@@ -10,9 +10,13 @@ import UIKit
 
 class CategoryViewController: UIViewController {
 
+    @IBOutlet weak var menBtn: UIButton!
+    @IBOutlet weak var womenBtn: UIButton!
+    
     @IBOutlet weak var tableView: UITableView!
     
-    let categories = ["TSHIRTS", "SWIMWEAR", "COATS", "SHOES", "TOWELS", "SALE"]
+    var categories = ["TSHIRTS", "SHORTS", "COATS", "SHOES", "TOWELS", "SALE"]
+    let ecru = UIColor(displayP3Red: 242.0/255, green: 242.0/255, blue: 247.0/255, alpha: 1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +26,40 @@ class CategoryViewController: UIViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
+        
+        btnDesign()
     }
+    
+    @IBAction func menBtnPressed(_ sender: Any)
+    {
+        categories = ["TSHIRTS", "SHORTS", "COATS", "SHOES", "TOWELS", "SALE"]
+        womenBtn.backgroundColor = ecru
+        womenBtn.setTitleColor(UIColor.darkGray, for: .normal)
+        menBtn.backgroundColor = UIColor.darkGray
+        menBtn.setTitleColor(ecru, for: .normal)
+    }
+    
+    @IBAction func womenBtnPressed(_ sender: Any)
+    {
+        categories = ["TSHIRTS", "SWIMWEAR", "COATS", "SHOES", "TOWELS", "SALE"]
+        menBtn.backgroundColor = ecru
+        menBtn.setTitleColor(UIColor.darkGray, for: .normal)
+        womenBtn.backgroundColor = UIColor.darkGray
+        womenBtn.setTitleColor(ecru, for: .normal)
+    }
+    
+    func btnDesign()
+    {
+        menBtn.layer.borderWidth = 0.7
+        menBtn.layer.borderColor = UIColor.gray.cgColor
+//        menBtn.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+//        menBtn.layer.cornerRadius = menBtn.frame.height/4
+        
+        womenBtn.layer.borderWidth = 0.7
+        womenBtn.layer.borderColor = UIColor.gray.cgColor
+    }
+    
+    
 
 }
 
@@ -40,21 +77,23 @@ extension CategoryViewController : UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as! CategoryTableViewCell
-        cell.categoryCellName.text = categories[indexPath.row]
         
-        if categories[indexPath.row] == "SALE"
-        {
-           
-            cell.categoryCellName.textColor = UIColor.black
-            cell.categoryCellName.font = UIFont.boldSystemFont(ofSize: 35)
-//            cell.frame = cell.frame.inset(by: UIEdgeInsets(top: CGFloat(categories.count*30 + 100), left: 0, bottom: 0, right: 0))
-//            cell.categoryCellName.frame = cell.categoryCellName.frame.inset(by: UIEdgeInsets(top: 100, left: 15, bottom: 0, right: 0))
+        
+//        if categories[indexPath.row] == "SALE"
+//        {
+//             let cell = tableView.dequeueReusableCell(withIdentifier: "SellCategoryTableViewCell", for: indexPath) as! SellCategoryTableViewCell
+//            cell.categoryCellName.text = categories[indexPath.row]
+//
+//            return cell
+//        }
             
+//        else
+//        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as! CategoryTableViewCell
+            cell.categoryCellName.text = categories[indexPath.row]
             return cell
-        }
+//        }
         
-        return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -833,6 +833,9 @@
                                                 <state key="normal" title="MEN">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="menBtnPressed:" destination="R6i-PK-ApV" eventType="touchUpInside" id="fvp-zK-0VX"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjN-QL-Avd" userLabel="Women Button">
                                                 <rect key="frame" x="207" y="0.0" width="207" height="70"/>
@@ -840,6 +843,9 @@
                                                 <state key="normal" title="WOMEN">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="womenBtnPressed:" destination="R6i-PK-ApV" eventType="touchUpInside" id="Um4-Jb-kSc"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -878,7 +884,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="KPW-tD-wIA"/>
                     <connections>
+                        <outlet property="menBtn" destination="Z4v-5M-aXo" id="1lt-r7-a4f"/>
                         <outlet property="tableView" destination="Ey9-sc-O20" id="Q00-ky-Ovk"/>
+                        <outlet property="womenBtn" destination="zjN-QL-Avd" id="YHN-Xn-xzz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iah-f9-76o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
