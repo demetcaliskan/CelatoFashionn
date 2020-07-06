@@ -12,7 +12,7 @@ class CategoryViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let categories = ["Women", "Dress", "Men", "Coats", "Shoes"]
+    let categories = ["TSHIRTS", "SWIMWEAR", "COATS", "SHOES", "TOWELS", "SALE"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ class CategoryViewController: UIViewController {
 extension CategoryViewController : UITableViewDelegate
 {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tapped an category!")
+        print("You tapped a category!")
     }
 }
 
@@ -41,9 +41,18 @@ extension CategoryViewController : UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as! CategoryTableViewCell
-        cell.categoryCell.text = categories[indexPath.row]
-        cell.categoryCell.textColor = UIColor.darkGray
-        cell.categoryCell.textAlignment = .center
+        cell.categoryCellName.text = categories[indexPath.row]
+        
+        if categories[indexPath.row] == "SALE"
+        {
+           
+            cell.categoryCellName.textColor = UIColor.black
+            cell.categoryCellName.font = UIFont.boldSystemFont(ofSize: 35)
+//            cell.frame = cell.frame.inset(by: UIEdgeInsets(top: CGFloat(categories.count*30 + 100), left: 0, bottom: 0, right: 0))
+//            cell.categoryCellName.frame = cell.categoryCellName.frame.inset(by: UIEdgeInsets(top: 100, left: 15, bottom: 0, right: 0))
+            
+            return cell
+        }
         
         return cell
     }

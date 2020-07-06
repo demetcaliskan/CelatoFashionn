@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zk7-Ct-LYo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R6i-PK-ApV">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -11,9 +11,6 @@
     <customFonts key="customFonts">
         <array key="SF-Pro-Display-Black.otf">
             <string>SFProDisplay-Black</string>
-        </array>
-        <array key="SF-Pro-Display-Bold.otf">
-            <string>SFProDisplay-Bold</string>
         </array>
         <array key="SF-Pro-Display-Light.otf">
             <string>SFProDisplay-Light</string>
@@ -387,9 +384,9 @@
                                         </constraints>
                                         <items>
                                             <tabBarItem title="" image="Home tab" id="rEL-Vj-79T"/>
-                                            <tabBarItem title="" image="Search Tab" id="63A-Xo-TJg"/>
-                                            <tabBarItem title="" image="Category Tab" id="Czq-bU-ZrK"/>
-                                            <tabBarItem title="" image="Account Tab" id="NHc-JX-Qa0"/>
+                                            <tabBarItem tag="1" title="" image="Search Tab" id="63A-Xo-TJg"/>
+                                            <tabBarItem tag="2" title="" image="Category Tab" id="Czq-bU-ZrK"/>
+                                            <tabBarItem tag="3" title="" image="Account Tab" id="NHc-JX-Qa0"/>
                                         </items>
                                     </tabBar>
                                 </subviews>
@@ -412,7 +409,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="W8x-wh-U9q"/>
                     <connections>
-                        <outlet property="accountBarItem" destination="NHc-JX-Qa0" id="RXE-l0-KsE"/>
                         <outlet property="bagButton" destination="zqs-ch-cTv" id="w0S-dE-58U"/>
                         <outlet property="celatoLabel" destination="7iJ-oQ-AC5" id="30q-YU-FW0"/>
                         <outlet property="collectionView" destination="gKt-3p-sVS" id="d0t-r1-18b"/>
@@ -773,9 +769,9 @@
                                         </constraints>
                                         <items>
                                             <tabBarItem title="" image="Home tab" id="CkG-az-NSk"/>
-                                            <tabBarItem title="" image="Search Tab" id="Noh-gy-x0H"/>
-                                            <tabBarItem title="" image="Category Tab" id="u9f-nh-LU0"/>
-                                            <tabBarItem title="" image="Account Tab" id="8Cg-lt-mCU"/>
+                                            <tabBarItem tag="1" title="" image="Search Tab" id="Noh-gy-x0H"/>
+                                            <tabBarItem tag="2" title="" image="Category Tab" id="u9f-nh-LU0"/>
+                                            <tabBarItem tag="3" title="" image="Account Tab" id="8Cg-lt-mCU"/>
                                         </items>
                                     </tabBar>
                                 </subviews>
@@ -795,6 +791,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0S7-dU-heT"/>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="s32-zw-zFq" id="uyt-6X-LgF"/>
+                        <outlet property="tabBar" destination="mWS-kx-u5r" id="505-Sc-BB9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qce-nE-9cm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -811,88 +811,60 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tRi-SC-eTP">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CELATO FASHION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Vc-Q4-zfZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BG1-kK-3qZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo2" translatesAutoresizingMaskIntoConstraints="NO" id="COA-uk-2Wd">
+                                                <rect key="frame" x="172.33333333333334" y="0.3333333333333357" width="69.666666666666657" height="69.666666666666657"/>
+                                            </imageView>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="lWK-hP-dwY"/>
+                                            <constraint firstAttribute="height" constant="70" id="JkJ-Ob-sXE"/>
+                                            <constraint firstItem="COA-uk-2Wd" firstAttribute="centerY" secondItem="BG1-kK-3qZ" secondAttribute="centerY" id="RJK-Cp-l0R"/>
+                                            <constraint firstItem="COA-uk-2Wd" firstAttribute="centerX" secondItem="BG1-kK-3qZ" secondAttribute="centerX" id="ewA-aU-Jvi"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="SFProDisplay-Black" family="SF Pro Display" pointSize="24"/>
-                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
+                                    </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dlp-1o-cy4" userLabel="Gender Gategory">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="70" width="414" height="70"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4v-5M-aXo" userLabel="Men Button">
-                                                <rect key="frame" x="0.0" y="0.0" width="138" height="50"/>
-                                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="207" height="70"/>
+                                                <fontDescription key="fontDescription" name="SFProDisplay-Black" family="SF Pro Display" pointSize="24"/>
                                                 <state key="normal" title="MEN">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjN-QL-Avd" userLabel="Women Button">
-                                                <rect key="frame" x="138" y="0.0" width="138" height="50"/>
-                                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="20"/>
+                                                <rect key="frame" x="207" y="0.0" width="207" height="70"/>
+                                                <fontDescription key="fontDescription" name="SFProDisplay-Black" family="SF Pro Display" pointSize="24"/>
                                                 <state key="normal" title="WOMEN">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHi-YS-gJL" userLabel="Others Button">
-                                                <rect key="frame" x="276" y="0.0" width="138" height="50"/>
-                                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="20"/>
-                                                <state key="normal" title="OTHERS">
-                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                            </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="aBD-ef-mJx"/>
+                                            <constraint firstAttribute="height" constant="70" id="aBD-ef-mJx"/>
                                         </constraints>
                                     </stackView>
-                                    <scrollView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" canCancelContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZ9-6u-tPF">
-                                        <rect key="frame" x="0.0" y="100" width="414" height="586"/>
-                                        <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ey9-sc-O20">
-                                                <rect key="frame" x="0.0" y="0.0" width="424" height="586"/>
-                                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                <sections/>
-                                            </tableView>
-                                        </subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ey9-sc-O20">
+                                        <rect key="frame" x="0.0" y="140" width="414" height="546"/>
                                         <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="Ey9-sc-O20" firstAttribute="bottom" secondItem="Unp-qv-OVl" secondAttribute="bottom" id="8hS-59-ldW"/>
-                                            <constraint firstItem="Ey9-sc-O20" firstAttribute="top" secondItem="Unp-qv-OVl" secondAttribute="top" id="9Uv-iX-oXt"/>
-                                            <constraint firstItem="Ey9-sc-O20" firstAttribute="width" secondItem="HZ9-6u-tPF" secondAttribute="width" multiplier="1.024" id="CdS-RU-sQC"/>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="718" id="E46-DX-OpP"/>
-                                            <constraint firstItem="Ey9-sc-O20" firstAttribute="height" secondItem="ylY-Wp-hap" secondAttribute="height" id="GWu-SB-cIR"/>
-                                            <constraint firstItem="Ey9-sc-O20" firstAttribute="leading" secondItem="Unp-qv-OVl" secondAttribute="leading" id="HJx-JY-uSw"/>
-                                            <constraint firstItem="Ey9-sc-O20" firstAttribute="trailing" secondItem="Unp-qv-OVl" secondAttribute="trailing" id="Y3z-7B-0w2"/>
-                                        </constraints>
-                                        <viewLayoutGuide key="safeArea" id="w3C-i0-GDe"/>
-                                        <viewLayoutGuide key="contentLayoutGuide" id="Unp-qv-OVl"/>
-                                        <viewLayoutGuide key="frameLayoutGuide" id="ylY-Wp-hap"/>
-                                    </scrollView>
+                                        <sections/>
+                                    </tableView>
                                     <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ir-Cs-krW">
                                         <rect key="frame" x="0.0" y="686" width="414" height="50"/>
                                         <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.0" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="BVl-ME-VNV"/>
+                                            <constraint firstAttribute="height" constant="50" id="BVl-ME-VNV"/>
                                         </constraints>
                                         <items>
                                             <tabBarItem title="" image="Home tab" id="orC-ki-Ed6"/>
-                                            <tabBarItem title="" image="Search Tab" id="H5x-oI-2Vh"/>
-                                            <tabBarItem title="" image="Category Tab" id="5OO-lP-db2"/>
-                                            <tabBarItem title="" image="Account Tab" id="SAM-bM-qYR"/>
+                                            <tabBarItem tag="1" title="" image="Search Tab" id="H5x-oI-2Vh"/>
+                                            <tabBarItem tag="2" title="" image="Category Tab" id="5OO-lP-db2"/>
+                                            <tabBarItem tag="3" title="" image="Account Tab" id="SAM-bM-qYR"/>
                                         </items>
                                     </tabBar>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="HZ9-6u-tPF" firstAttribute="trailing" secondItem="tRi-SC-eTP" secondAttribute="trailing" id="G8c-LB-f3P"/>
-                                    <constraint firstItem="HZ9-6u-tPF" firstAttribute="top" secondItem="dlp-1o-cy4" secondAttribute="bottom" id="Q6L-Fu-rN7"/>
-                                    <constraint firstItem="HZ9-6u-tPF" firstAttribute="bottom" secondItem="1ir-Cs-krW" secondAttribute="top" id="R2E-Ah-FmG"/>
-                                    <constraint firstItem="HZ9-6u-tPF" firstAttribute="leading" secondItem="tRi-SC-eTP" secondAttribute="leading" id="qBw-kR-9Be"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
@@ -911,7 +883,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iah-f9-76o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3680.8000000000002" y="27.436281859070466"/>
+            <point key="canvasLocation" x="3659.420289855073" y="28.532608695652176"/>
         </scene>
         <!--Contanier View Controller-->
         <scene sceneID="oO3-0d-pny">
@@ -984,5 +956,6 @@
         <image name="bag" catalog="system" width="128" height="128"/>
         <image name="logo" width="244" height="294"/>
         <image name="logo-1" width="203.66667175292969" height="203.66667175292969"/>
+        <image name="logo2" width="69.666664123535156" height="69.666664123535156"/>
     </resources>
 </document>
