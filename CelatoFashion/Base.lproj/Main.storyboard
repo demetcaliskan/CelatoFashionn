@@ -710,7 +710,7 @@
         <!--Search View Controller-->
         <scene sceneID="MHK-LX-Wqq">
             <objects>
-                <viewController storyboardIdentifier="SearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h72-so-kiM" customClass="SearchViewController" customModule="CelatoFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h72-so-kiM" customClass="SearchViewController" customModule="CelatoFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xzq-Cc-jgk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -808,7 +808,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tRi-SC-eTP">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tRi-SC-eTP">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BG1-kK-3qZ">
@@ -825,7 +825,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dlp-1o-cy4" userLabel="Gender Gategory">
-                                        <rect key="frame" x="0.0" y="70" width="414" height="70"/>
+                                        <rect key="frame" x="0.0" y="80" width="414" height="70"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4v-5M-aXo" userLabel="Men Button">
                                                 <rect key="frame" x="0.0" y="0.0" width="207" height="70"/>
@@ -852,8 +852,8 @@
                                             <constraint firstAttribute="height" constant="70" id="aBD-ef-mJx"/>
                                         </constraints>
                                     </stackView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ey9-sc-O20">
-                                        <rect key="frame" x="0.0" y="140" width="414" height="546"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ey9-sc-O20">
+                                        <rect key="frame" x="0.0" y="160" width="414" height="516"/>
                                         <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <sections/>
                                     </tableView>
@@ -885,6 +885,7 @@
                     <navigationItem key="navigationItem" id="KPW-tD-wIA"/>
                     <connections>
                         <outlet property="menBtn" destination="Z4v-5M-aXo" id="1lt-r7-a4f"/>
+                        <outlet property="tabBar" destination="1ir-Cs-krW" id="gRl-R9-sbh"/>
                         <outlet property="tableView" destination="Ey9-sc-O20" id="Q00-ky-Ovk"/>
                         <outlet property="womenBtn" destination="zjN-QL-Avd" id="YHN-Xn-xzz"/>
                     </connections>

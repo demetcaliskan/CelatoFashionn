@@ -95,6 +95,8 @@
 		6E64D98724A27A8500D2CE8B /* ItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 805B0CAA248C56C40071AD5B /* ItemCollectionViewCell.xib */; };
 		6E64D98824A27A8D00D2CE8B /* BagItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8061F99D248D8D5C00E5705B /* BagItemCollectionViewCell.xib */; };
 		6E64D98924A27AE200D2CE8B /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E2B685124994EF300BD8686 /* CategoryTableViewCell.xib */; };
+		6EC3E1E024B4E7FB00D8D355 /* SellCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3E1DE24B4E7FB00D8D355 /* SellCategoryTableViewCell.swift */; };
+		6EC3E1E124B4E7FB00D8D355 /* SellCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EC3E1DF24B4E7FB00D8D355 /* SellCategoryTableViewCell.xib */; };
 		805B0CA4248C2E760071AD5B /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805B0CA3248C2E760071AD5B /* HomePageViewController.swift */; };
 		805B0CAB248C56C40071AD5B /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805B0CA9248C56C40071AD5B /* ItemCollectionViewCell.swift */; };
 		8061F99B248D8C5D00E5705B /* ShoppingBagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061F99A248D8C5D00E5705B /* ShoppingBagViewController.swift */; };
@@ -212,6 +214,8 @@
 		6E64D8DD24A2775400D2CE8B /* SF-Compact-Text-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Compact-Text-ThinItalic.otf"; path = "../../../../Fonts/SF-Compact-Text-ThinItalic.otf"; sourceTree = "<group>"; };
 		6E64D8DE24A2775400D2CE8B /* SF-Compact-Text-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Compact-Text-BoldItalic.otf"; path = "../../../../Fonts/SF-Compact-Text-BoldItalic.otf"; sourceTree = "<group>"; };
 		6E64D8DF24A2775400D2CE8B /* SF-Compact-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Compact-Text-Medium.otf"; path = "../../../../Fonts/SF-Compact-Text-Medium.otf"; sourceTree = "<group>"; };
+		6EC3E1DE24B4E7FB00D8D355 /* SellCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		6EC3E1DF24B4E7FB00D8D355 /* SellCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SellCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		805B0CA3248C2E760071AD5B /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		805B0CA9248C56C40071AD5B /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		805B0CAA248C56C40071AD5B /* ItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -393,6 +397,8 @@
 				805B0CA3248C2E760071AD5B /* HomePageViewController.swift */,
 				6E2B685024994EF300BD8686 /* CategoryTableViewCell.swift */,
 				6E2B685124994EF300BD8686 /* CategoryTableViewCell.xib */,
+				6EC3E1DE24B4E7FB00D8D355 /* SellCategoryTableViewCell.swift */,
+				6EC3E1DF24B4E7FB00D8D355 /* SellCategoryTableViewCell.xib */,
 				80E59C56248446BC0023CA2D /* Assets.xcassets */,
 				80E59C5B248446BC0023CA2D /* Info.plist */,
 				80E59C58248446BC0023CA2D /* LaunchScreen.storyboard */,
@@ -522,6 +528,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EC3E1E124B4E7FB00D8D355 /* SellCategoryTableViewCell.xib in Resources */,
 				6E64D98924A27AE200D2CE8B /* CategoryTableViewCell.xib in Resources */,
 				6E64D98824A27A8D00D2CE8B /* BagItemCollectionViewCell.xib in Resources */,
 				6E64D98724A27A8500D2CE8B /* ItemCollectionViewCell.xib in Resources */,
@@ -638,6 +645,7 @@
 				80CF6304249177A500FDF57E /* RegisterViewController.swift in Sources */,
 				805B0CA4248C2E760071AD5B /* HomePageViewController.swift in Sources */,
 				80CF630A2491782100FDF57E /* CategoryViewController.swift in Sources */,
+				6EC3E1E024B4E7FB00D8D355 /* SellCategoryTableViewCell.swift in Sources */,
 				80E59C52248446B90023CA2D /* ViewController.swift in Sources */,
 				80CF63022490243D00FDF57E /* ContanierViewController.swift in Sources */,
 				8061F9A1248DC60500E5705B /* ShowProductViewController.swift in Sources */,

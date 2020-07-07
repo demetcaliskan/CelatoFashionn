@@ -34,29 +34,6 @@ class HomePageViewController: UIViewController {
     var collectionViewFlowLayout : UICollectionViewFlowLayout!
     let cellIdentifier = "ItemCollectionViewCell"
     
-//    func tabBar(tabBar: UITabBar!, didSelectItem item: UITabBarItem!)
-//    {
-//        print("tab bar is selected")
-//        if item.tag == 3
-//        {
-//            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-//            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-//            self.present(nextViewController, animated:true, completion:nil)
-//            print("account bar item is selected")
-//        }
-//    }
-    
-//    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem)
-//    {
-//        print("tab bar is selected")
-//        if item == accountBarItem
-//        {
-//            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-//            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-//            self.present(nextViewController, animated:true, completion:nil)
-//            print("account bar item is selected")
-//        }
-//    }
     
     override func viewDidLoad()
     {
