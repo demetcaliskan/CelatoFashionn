@@ -43,6 +43,8 @@ class CategoryViewController: UIViewController {
         womenBtn.setTitleColor(UIColor.darkGray, for: .normal)
         menBtn.backgroundColor = UIColor.darkGray
         menBtn.setTitleColor(ecru, for: .normal)
+        
+        tableView.reloadData()
     }
     
     @IBAction func womenBtnPressed(_ sender: Any)
@@ -52,14 +54,14 @@ class CategoryViewController: UIViewController {
         menBtn.setTitleColor(UIColor.darkGray, for: .normal)
         womenBtn.backgroundColor = UIColor.darkGray
         womenBtn.setTitleColor(ecru, for: .normal)
+        
+        tableView.reloadData()
     }
     
     func btnDesign()
     {
         menBtn.layer.borderWidth = 0.7
         menBtn.layer.borderColor = UIColor.gray.cgColor
-//        menBtn.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
-//        menBtn.layer.cornerRadius = menBtn.frame.height/4
         
         womenBtn.layer.borderWidth = 0.7
         womenBtn.layer.borderColor = UIColor.gray.cgColor
