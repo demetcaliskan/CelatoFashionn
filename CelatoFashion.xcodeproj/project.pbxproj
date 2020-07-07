@@ -131,8 +131,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6E3F638524B5063400C061B9 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryTableViewCell.swift; path = ../CategoryTableViewCell.swift; sourceTree = "<group>"; };
-		6E3F638624B5063400C061B9 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CategoryTableViewCell.xib; path = ../CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		6E3F638524B5063400C061B9 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		6E3F638624B5063400C061B9 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		6E64D88F24A2775000D2CE8B /* SF-Pro-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Text-Medium.otf"; path = "../../../../Fonts/SF-Pro-Text-Medium.otf"; sourceTree = "<group>"; };
 		6E64D89024A2775000D2CE8B /* SF-Pro-Display-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Display-BlackItalic.otf"; path = "../../../../Fonts/SF-Pro-Display-BlackItalic.otf"; sourceTree = "<group>"; };
 		6E64D89124A2775000D2CE8B /* SF-Pro-Display-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Display-BoldItalic.otf"; path = "../../../../Fonts/SF-Pro-Display-BoldItalic.otf"; sourceTree = "<group>"; };
