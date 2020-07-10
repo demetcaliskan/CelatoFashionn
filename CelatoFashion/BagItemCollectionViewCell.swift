@@ -9,7 +9,7 @@
 import UIKit
 
 class BagItemCollectionViewCell: UICollectionViewCell {
-
+    
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productSize: UILabel!

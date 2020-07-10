@@ -63,27 +63,31 @@ class HomePageViewController: UIViewController {
             let numberOfItemsPerRow : CGFloat = 2
             let lineSpacing : CGFloat = 5
             let interItemSpacing : CGFloat = 5
-            var width = (collectionView.frame.width - interItemSpacing) / numberOfItemsPerRow
             var edgeSpacing : CGFloat = 5
-            if collectionView.frame.width < 330
+            let screenBounds = UIScreen.main.bounds
+            let screen_width = screenBounds.width
+//            let screen_height = screenBounds.height
+            var width = (collectionView.frame.width - interItemSpacing) / numberOfItemsPerRow
+            
+            if screen_width < 330
             {
-                width = (collectionView.frame.width - interItemSpacing - 20) / numberOfItemsPerRow
+                width = (screen_width - interItemSpacing - 20) / numberOfItemsPerRow
                 edgeSpacing = 5
-                print("1.\(collectionView.frame.width)")
+                print("Screen width is: \(screen_width)")
             }
-            else if collectionView.frame.width > 330 && collectionView.frame.width < 400
+            else if screen_width > 330 && screen_width < 400
             {
-                width = (375 - interItemSpacing - 30) / numberOfItemsPerRow
+                width = (screen_width - interItemSpacing - 30) / numberOfItemsPerRow
                 edgeSpacing = 10
-                print("2.\(collectionView.frame.width)")
+                print("Screen width is: \(screen_width)")
             }
             else
             {
-                width = (414 - interItemSpacing - 40) / numberOfItemsPerRow
+                width = (screen_width - interItemSpacing - 40) / numberOfItemsPerRow
                 edgeSpacing = 10
-                print("3.\(collectionView.frame.width)")
+                print("Screen width is: \(screen_width)")
             }
-            let height = width*2
+            let height = width*1.7
             
             collectionViewFlowLayout = UICollectionViewFlowLayout()
             
