@@ -10,22 +10,96 @@ import UIKit
 
 class ShowProductViewController: UIViewController {
     
-    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var addToBagBtn: UIButton!
+    @IBOutlet weak var collectionView: UICollectionView!
     
-    let vc = ContanierViewController(nibName: "ContanierViewController", bundle: nil)
+    var imgArray = [UIImage(named: "Product"),
+                    UIImage(named: "Product 2"),
+                    UIImage(named: "Product 3")]
+    
+    let cellIdentifier = "ShowProductCollectionViewCell"
+    var collectionViewFlowLayout : UICollectionViewFlowLayout!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pageSwap()
         btnDesign()
+        pageControl.numberOfPages = imgArray.count
+        pageControl.currentPage = 0
+        setupCollectionView()
     }
     
-    func pageSwap()
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    private func setupCollectionView()
     {
-        let pageNum = vc.pageNum
-        pageControl.currentPage = pageNum
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        let nib = UINib(nibName: "ShowProductCollectionViewCell", bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: cellIdentifier)
+        setupCollectionViewItemSize()
+    }
+    
+    private func setupCollectionViewItemSize()
+    {
+        if collectionViewFlowLayout == nil
+        {
+            let numberOfItemsPerRow : CGFloat = 1
+            let lineSpacing : CGFloat = 0
+            let interItemSpacing : CGFloat = 0
+            let screenBounds = UIScreen.main.bounds
+            let screen_width = screenBounds.width
+            let screen_height = screenBounds.height
+            var width = (collectionView.frame.width - interItemSpacing) / numberOfItemsPerRow
+            var height : CGFloat
+            
+            if screen_width < 330
+            {
+                width = (screen_width) / numberOfItemsPerRow
+                print("Screen width is: \(screen_width)")
+            }
+            else if screen_width > 330 && screen_width < 400
+            {
+                width = (screen_width) / numberOfItemsPerRow
+                print("Screen width is: \(screen_width)")
+            }
+            else
+            {
+                width = (screen_width) / numberOfItemsPerRow
+                print("Screen width is: \(screen_width)")
+            }
+            
+            if screen_height > 800
+            {
+                print(collectionView.frame.height)
+                print("First")
+                height = 395
+            }
+            else if screen_height > 700 && screen_height < 800
+            {
+                print(collectionView.frame.height)
+                print("Second")
+                height = 380
+            }
+            else
+            {
+                print("Last")
+                height = 380 - (736 - screen_height)
+            }
+            
+            collectionViewFlowLayout = UICollectionViewFlowLayout()
+            
+            collectionViewFlowLayout.itemSize = CGSize(width: width, height: height)
+            collectionViewFlowLayout.sectionInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right:0)
+            collectionViewFlowLayout.scrollDirection = .horizontal
+            collectionViewFlowLayout.minimumLineSpacing = lineSpacing
+            collectionViewFlowLayout.minimumInteritemSpacing = 1
+            
+            collectionView.setCollectionViewLayout(collectionViewFlowLayout, animated: true)
+        }
     }
     
     func btnDesign()
@@ -57,6 +131,64 @@ class ShowProductViewController: UIViewController {
 
         self.present(alertController, animated: true, completion: nil)
     }
-    
 
+}
+
+extension ShowProductViewController: UICollectionViewDelegate, UICollectionViewDataSource
+{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return imgArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ShowProductCollectionViewCell
+//        if let vc = cell.viewWithTag(1111) as? UIImageView
+//        {
+//            vc.image = imgArray[indexPath.row]
+//        }
+        cell.image.image =  imgArray[indexPath.row]
+        
+
+        return cell
+    }
+    
+    
+}
+
+//extension ShowProductViewController: UICollectionViewDelegateFlowLayout {
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let screenBounds = UIScreen.main.bounds
+//        let screen_width = screenBounds.width
+//        let size = collectionView.frame.size
+//        return CGSize(width: screen_width, height: (size.height))
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        return 10
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        return 5
+//    }
+//}
+
+extension ShowProductViewController: UIScrollViewDelegate
+{
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+
+        var visibleRect = CGRect()
+        visibleRect.origin = collectionView.contentOffset
+        visibleRect.size = collectionView.bounds.size
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+        guard let indexPath = collectionView.indexPathForItem(at: visiblePoint) else { return }
+        print(indexPath.row)
+        let counter = indexPath.row
+        pageControl.currentPage = counter
+
+    }
 }

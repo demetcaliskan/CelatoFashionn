@@ -28,6 +28,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         setupCollectionView()
         self.tabBar.delegate = self
+        self.hideKeyboardWhenTappedAround()
     }
     
     override func viewWillLayoutSubviews()
