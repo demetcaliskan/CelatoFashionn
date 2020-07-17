@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class CategoryViewController: UIViewController {
 
@@ -16,11 +17,12 @@ class CategoryViewController: UIViewController {
     @IBOutlet weak var tabBar: UITabBar!
     @IBOutlet weak var tableView: UITableView!
     
-    var categories = ["TSHIRTS", "SHORTS", "COATS", "SHOES", "TOWELS", "SALE"]
+    var categories = [""]
     let ecru = UIColor(displayP3Red: 242.0/255, green: 242.0/255, blue: 247.0/255, alpha: 1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getCategories()
         
         let nib = UINib(nibName: "CategoryTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "CategoryTableViewCell")
@@ -38,7 +40,6 @@ class CategoryViewController: UIViewController {
     
     @IBAction func menBtnPressed(_ sender: Any)
     {
-        categories = ["TSHIRTS", "SHORTS", "COATS", "SHOES", "TOWELS", "SALE"]
         womenBtn.backgroundColor = ecru
         womenBtn.setTitleColor(UIColor.darkGray, for: .normal)
         menBtn.backgroundColor = UIColor.darkGray
@@ -49,7 +50,6 @@ class CategoryViewController: UIViewController {
     
     @IBAction func womenBtnPressed(_ sender: Any)
     {
-        categories = ["TSHIRTS", "SWIMWEAR", "COATS", "SHOES", "TOWELS", "SALE"]
         menBtn.backgroundColor = ecru
         menBtn.setTitleColor(UIColor.darkGray, for: .normal)
         womenBtn.backgroundColor = UIColor.darkGray
@@ -66,9 +66,21 @@ class CategoryViewController: UIViewController {
         womenBtn.layer.borderWidth = 0.7
         womenBtn.layer.borderColor = UIColor.gray.cgColor
     }
+    func getCategories(){
+        Firestore.firestore().collection("categories").document("1").getDocument { (snapshot, error) in
+            if let err = error {
+                print("Error fetching docs: \(err)")
+            }
+            else {
+                let categoryDictionary = (snapshot?.data())! as! [String : [String]]
+                print(categoryDictionary)
+                self.categories = categoryDictionary["categories"]!
+                
+                self.tableView.reloadData()
+            }
+        }
+    }
     
-    
-
 }
 
 extension CategoryViewController : UITableViewDelegate

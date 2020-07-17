@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 struct Item
 {
@@ -18,7 +19,6 @@ class HomePageViewController: UIViewController {
     @IBOutlet weak var celatoLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tabBar: UITabBar!
-    @IBOutlet weak var bagButton: UIButton!
     
     
     
@@ -34,12 +34,17 @@ class HomePageViewController: UIViewController {
     var collectionViewFlowLayout : UICollectionViewFlowLayout!
     let cellIdentifier = "ItemCollectionViewCell"
     
-    
+    var products: [NotProduct] = []
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
         setupCollectionView()
         self.tabBar.delegate = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        loadProducts()
+        
     }
     
     override func viewWillLayoutSubviews()
@@ -100,6 +105,39 @@ class HomePageViewController: UIViewController {
             collectionView.setCollectionViewLayout(collectionViewFlowLayout, animated: true)
         }
     }
+    @IBAction func goToBag(_ sender: Any) {
+        performSegue(withIdentifier: "homeToBag", sender: self)
+        
+    }
+    func loadProducts(){
+        Firestore.firestore().collection("products").getDocuments { (snapshot, error) in
+            if let err = error {
+            print("Error fetching docs: \(err)")
+        } else {
+                for document in (snapshot?.documents)! {
+
+                    let data = document.data()
+                    
+                    let product = NotProduct(
+                        name: data["name"] as! String,
+                        amount: data["amount"] as! String,
+                        category: data["category"] as! String,
+                        color: data["color"] as! String,
+                        price: data["price"] as! String,
+                        size: data["size"] as! String,
+                        id: data["id"] as! String,
+                        gender: data["gender"] as! String)
+                    
+                    print(document.data())
+                    
+                    self.products.append(product)
+                    self.collectionView.reloadData()
+                }
+                
+            }
+            
+        }
+    }
 
 }
 
@@ -142,24 +180,36 @@ extension HomePageViewController: UITabBarDelegate
 extension HomePageViewController: UICollectionViewDelegate, UICollectionViewDataSource
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        return products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ItemCollectionViewCell
         
         cell.itemImage.image = UIImage(named: items[indexPath.item].collectionViewName)
-        cell.itemName.text = "Demet"
-        cell.itemPrice.text = "300"
+        cell.itemName.text = products[indexPath.item].getName()
+        print("cell at \(indexPath.item) 's name is \(cell.itemName.text!)")
+        cell.itemPrice.text = "$" + products[indexPath.item].getPrice()
         
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("DidSelectItemAt \(indexPath)")
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+        print("DidSelectItemAt \(products[indexPath.item].getName())")
         
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ShowProductViewController") as! ShowProductViewController
-        self.present(nextViewController, animated:true, completion:nil)
+        let product = products[indexPath.item]
+        let defaults = UserDefaults.standard
+        
+        defaults.set(product.getName(), forKey: "name")
+        defaults.set(product.getPrice(), forKey: "price")
+        defaults.set(product.getSize(), forKey: "size")
+        defaults.set(product.getAmount(), forKey: "amount")
+        defaults.set(product.getColor(), forKey: "color")
+        defaults.set(product.getId(), forKey: "id")
+        defaults.set(product.getCategory(), forKey: "category")
+        defaults.set(product.getGender(), forKey: "gender")
+        
+        performSegue(withIdentifier: "homeToShow", sender: self)
+        
     }
 }

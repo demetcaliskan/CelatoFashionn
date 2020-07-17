@@ -7,12 +7,22 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class ShowProductViewController: UIViewController {
     
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var addToBagBtn: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var xsButton: UIButton!
+    @IBOutlet weak var sButton: UIButton!
+    @IBOutlet weak var mButton: UIButton!
+    @IBOutlet weak var lButton: UIButton!
+    
+    @IBOutlet weak var headerText: UINavigationItem!
+    
+    @IBOutlet weak var priceLabel: UILabel!
     
     var imgArray = [UIImage(named: "Product"),
                     UIImage(named: "Product 2"),
@@ -21,12 +31,15 @@ class ShowProductViewController: UIViewController {
     let cellIdentifier = "ShowProductCollectionViewCell"
     var collectionViewFlowLayout : UICollectionViewFlowLayout!
     
+    var product : NotProduct = NotProduct()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         btnDesign()
         pageControl.numberOfPages = imgArray.count
         pageControl.currentPage = 0
         setupCollectionView()
+        getProduct()
     }
     
     override func didReceiveMemoryWarning() {
@@ -101,6 +114,45 @@ class ShowProductViewController: UIViewController {
             collectionView.setCollectionViewLayout(collectionViewFlowLayout, animated: true)
         }
     }
+    func getProduct() {
+        
+        let defaults = UserDefaults.standard
+        product = NotProduct(
+            name: defaults.string(forKey: "name")!,
+            amount: defaults.string(forKey: "amount")!,
+            category: defaults.string(forKey: "category")!,
+            color: defaults.string(forKey: "color")!,
+            price: defaults.string(forKey: "price")!,
+            size: defaults.string(forKey: "size")!,
+            id: defaults.string(forKey: "id")!,
+            gender: defaults.string(forKey: "gender")!)
+        
+            headerText.title = product.getName()
+            priceLabel.text = ""
+            priceLabel.text = "$" + product.getPrice()
+        
+            if product.getSize() == "XS" {
+                sButton.isHidden = true
+                mButton.isHidden = true
+                lButton.isHidden = true
+            }
+            else if product.getSize() == "S" {
+                xsButton.isHidden = true
+                mButton.isHidden = true
+                lButton.isHidden = true
+            }
+            else if product.getSize() == "M" {
+                xsButton.isHidden = true
+                sButton.isHidden = true
+                lButton.isHidden = true
+            }
+            else if product.getSize() == "L" {
+                xsButton.isHidden = true
+                sButton.isHidden = true
+                mButton.isHidden = true
+            }
+        
+    }
     
     func btnDesign()
     {
@@ -112,26 +164,24 @@ class ShowProductViewController: UIViewController {
     
     @IBAction func addToBagPressed(_ sender: Any)
     {
-        let alertController = UIAlertController(title: "Do you have an account?", message:
-               "You should have an account to be able to buy an item.", preferredStyle: .alert)
-        
-        alertController.addAction(UIAlertAction(title: "Login", style: .default, handler: {
-            (ACTION) in alertController.dismiss(animated: true, completion: nil)
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-            self.present(nextViewController, animated:true, completion:nil)
-        }))
-        
-        alertController.addAction(UIAlertAction(title: "Register", style: .default, handler: {
-            (ACTION) in alertController.dismiss(animated: true, completion: nil)
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
-            self.present(nextViewController, animated:true, completion:nil)
-        }))
-
-        self.present(alertController, animated: true, completion: nil)
+        let defaults = UserDefaults.standard
+        if var addedProductsIds = defaults.array(forKey: "addedProducts") {
+            addedProductsIds.append(self.product.getId())
+            let uniqiueIds = removeDuplicates(array: addedProductsIds as! [String])
+            defaults.set(uniqiueIds, forKey: "addedProducts")
+        }
+        else {
+            var addedProductsIds : [String] = []
+            addedProductsIds.append(self.product.getId())
+            defaults.set(addedProductsIds, forKey: "addedProducts")
+        }
+        performSegue(withIdentifier: "showToBag", sender: self)
     }
-
+    
+    @IBAction func showToHomePressed(_ sender: Any) {
+        performSegue(withIdentifier: "showToHome", sender: self)
+    }
+    
 }
 
 extension ShowProductViewController: UICollectionViewDelegate, UICollectionViewDataSource
@@ -142,10 +192,6 @@ extension ShowProductViewController: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ShowProductCollectionViewCell
-//        if let vc = cell.viewWithTag(1111) as? UIImageView
-//        {
-//            vc.image = imgArray[indexPath.row]
-//        }
         cell.image.image =  imgArray[indexPath.row]
         
 
@@ -154,28 +200,16 @@ extension ShowProductViewController: UICollectionViewDelegate, UICollectionViewD
     
     
 }
-
-//extension ShowProductViewController: UICollectionViewDelegateFlowLayout {
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let screenBounds = UIScreen.main.bounds
-//        let screen_width = screenBounds.width
-//        let size = collectionView.frame.size
-//        return CGSize(width: screen_width, height: (size.height))
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 10
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        return 5
-//    }
-//}
+func removeDuplicates(array : [String]) -> [String] {
+    var newArray : [String] = []
+    for elements in array {
+        if(newArray.contains(elements) == false) {
+            newArray.append(elements)
+        }
+    }
+    print(newArray)
+    return newArray
+}
 
 extension ShowProductViewController: UIScrollViewDelegate
 {

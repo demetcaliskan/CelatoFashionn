@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol BagItemCollectionViewCellDelegate: class
+{
+    func delete(cell: BagItemCollectionViewCell)
+}
+
 class BagItemCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var productImage: UIImageView!
@@ -15,9 +20,14 @@ class BagItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var productSize: UILabel!
     @IBOutlet weak var productPrice: UILabel!
     
+    weak var delegate : BagItemCollectionViewCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    @IBAction func deleteProduct(_ sender: UIButton) {
+        delegate?.delete(cell: self)
+    }
 }

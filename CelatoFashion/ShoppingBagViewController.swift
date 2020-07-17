@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 struct Product {
     var collectionViewName : String
@@ -16,20 +17,67 @@ class ShoppingBagViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var buyBtn: UIButton!
+    @IBOutlet weak var totalLabel: UILabel!
     
     var items : [Product] = [Product(collectionViewName: "givenchy_coat2"),
                              Product(collectionViewName: "givenchy_coat2"),
-                             Product(collectionViewName: "givenchy_coat2")]
+                             Product(collectionViewName: "givenchy_coat2"),
+                             Product(collectionViewName: "givenchy_coat2"),
+                             Product(collectionViewName: "givenchy_coat2"),
+                             Product(collectionViewName: "givenchy_coat2"),
+                            ]
+    
+    var products: [NotProduct] = []
+    
     
     var collectionViewFlowLayout : UICollectionViewFlowLayout!
     let cellIdentifier = "BagItemCollectionViewCell"
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         setupCollectionView()
         btnDesign()
+        getAddedProducts()
+       
     }
-    
+    func getAddedProducts() {
+        var total : Double = 0.0
+        let defaults = UserDefaults.standard
+        let addedProducts = defaults.array(forKey: "addedProducts")
+        print(addedProducts)
+        for id in addedProducts! {
+            Firestore.firestore().collection("products").document(id as! String).getDocument { (document, error) in
+                
+                if let err = error {
+                    print("Error getting docs: \(err)")
+                }
+                else {
+                    print("id is \(id)")
+                    let data = document?.data()
+                    
+                    let product = NotProduct(
+                        name: data!["name"] as! String,
+                        amount: data!["amount"] as! String,
+                        category: data!["category"] as! String,
+                        color: data!["color"] as! String,
+                        price: data!["price"] as! String,
+                        size: data!["size"] as! String,
+                        id: data!["id"] as! String,
+                        gender: data!["gender"] as! String)
+                    let price = Double(product.getPrice())!
+                    print("price is \(price)")
+                    total = price + total
+                    self.totalLabel.text = "$" + String(total)
+                    print("total is changed and now is \(total)")
+                    self.products.append(product)
+                    self.collectionView.reloadData()
+                }
+            }
+        
+        }
+        
+    }
     func btnDesign()
     {
         buyBtn.layer.borderWidth = 2
@@ -51,6 +99,9 @@ class ShoppingBagViewController: UIViewController {
         collectionView.register(nib, forCellWithReuseIdentifier: cellIdentifier)
     }
     
+    @IBAction func leftArrowPressed(_ sender: Any) {
+        performSegue(withIdentifier: "bagToHome", sender: self)
+    }
     private func setupCollectionViewItemSize()
     {
         if collectionViewFlowLayout == nil
@@ -78,21 +129,44 @@ class ShoppingBagViewController: UIViewController {
 extension ShoppingBagViewController: UICollectionViewDelegate, UICollectionViewDataSource
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        return products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! BagItemCollectionViewCell
         
         cell.productImage.image = UIImage(named: items[indexPath.item].collectionViewName)
-        cell.productName.text = "GIVENCHY"
-        cell.productSize.text = "EU 42 (US 32)"
-        cell.productPrice.text = "$1300"
+        
+        cell.productName.text = products[indexPath.item].getName()
+        cell.productSize.text = products[indexPath.item].getSize()
+        cell.productPrice.text = "$" + products[indexPath.item].getPrice()
         
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        print("DidSelectItemAt\(indexPath)")
+    func didTap(_ cell: BagItemCollectionViewCell) {
+        print("???")
+        let indexPath = self.collectionView.indexPath(for: cell)
+        print("indexpath is \(indexPath!)")
+    }
+}
+extension ShoppingBagViewController: BagItemCollectionViewCellDelegate
+{
+    func delete(cell: BagItemCollectionViewCell) {
+        if let indexPath = collectionView?.indexPath(for: cell)
+        {
+            //delete the cell from datasource
+            print("delete triggered")
+            let userDefault = UserDefaults.standard
+            var productIds = userDefault.array(forKey: "addedProducts") as! [String]
+            
+            for i in 0..<productIds.count {
+                if(products[indexPath.item].getId() == productIds[i]) {
+                    productIds.remove(at: i)
+                }
+            }
+            userDefault.set(productIds, forKey: "addedProducts")
+            //delete the cell at that index path from the collection view
+            collectionView?.deleteItems(at: [indexPath])
+        }
     }
 }
