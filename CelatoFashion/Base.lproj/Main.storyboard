@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zk7-Ct-LYo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zk7-Ct-LYo">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -375,10 +375,10 @@
                                         </constraints>
                                     </stackView>
                                     <scrollView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" canCancelContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xki-az-TBK">
-                                        <rect key="frame" x="0.0" y="50" width="375" height="568"/>
+                                        <rect key="frame" x="0.0" y="50" width="375" height="567"/>
                                         <subviews>
                                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gKt-3p-sVS">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="568"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="567"/>
                                                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mcd-wM-pOn">
                                                     <size key="itemSize" width="179" height="375"/>
@@ -404,7 +404,7 @@
                                         <viewLayoutGuide key="frameLayoutGuide" id="Ifc-BH-lUf"/>
                                     </scrollView>
                                     <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OyK-cb-T66">
-                                        <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                        <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                         <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="0.0" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="4qw-vT-xGI"/>
@@ -611,6 +611,122 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sUp-H2-7Je" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1249" y="580"/>
+        </scene>
+        <!--Category Products View Controller-->
+        <scene sceneID="iOE-h9-OqH">
+            <objects>
+                <viewController id="gt5-jf-sM0" customClass="CategoryProductsViewController" customModule="CelatoFashion" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vGU-gm-0fu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Cej-3y-T95">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <navigationBar clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5C9-zt-Lzq">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="fNI-CQ-QPp"/>
+                                        </constraints>
+                                        <color key="barTintColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <textAttributes key="titleTextAttributes">
+                                            <fontDescription key="fontDescription" name="SFProDisplay-Black" family="SF Pro Display" pointSize="24"/>
+                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                                        </textAttributes>
+                                        <textAttributes key="largeTitleTextAttributes">
+                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                                        </textAttributes>
+                                        <items>
+                                            <navigationItem title="TSHIRTS" id="08f-aP-zIP">
+                                                <barButtonItem key="leftBarButtonItem" title="Item" image="Left Accessory" id="JD5-DT-oae">
+                                                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <connections>
+                                                        <action selector="showToHomePressed:" destination="mzy-gf-C5g" id="bJ1-LL-s0c"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                                <barButtonItem key="rightBarButtonItem" title="Item" image="bag" catalog="system" id="C8h-O8-fSE">
+                                                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <connections>
+                                                        <action selector="showToHomePressed:" destination="mzy-gf-C5g" id="0W6-9Q-3dx"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
+                                    <scrollView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" canCancelContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k60-2u-S7v">
+                                        <rect key="frame" x="0.0" y="50" width="375" height="567"/>
+                                        <subviews>
+                                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="N9c-Mq-FD5">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="567"/>
+                                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BXL-hP-YBa">
+                                                    <size key="itemSize" width="179" height="375"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells/>
+                                            </collectionView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="N9c-Mq-FD5" firstAttribute="height" secondItem="k60-2u-S7v" secondAttribute="height" id="58j-Yr-PYv"/>
+                                            <constraint firstItem="N9c-Mq-FD5" firstAttribute="top" secondItem="SIw-3f-Ojc" secondAttribute="top" id="JxD-iO-L5M"/>
+                                            <constraint firstItem="N9c-Mq-FD5" firstAttribute="width" secondItem="pba-rD-hMd" secondAttribute="width" id="bIr-l2-T2U"/>
+                                            <constraint firstItem="N9c-Mq-FD5" firstAttribute="leading" secondItem="SIw-3f-Ojc" secondAttribute="leading" id="eHB-Mf-1PU"/>
+                                            <constraint firstItem="N9c-Mq-FD5" firstAttribute="trailing" secondItem="SIw-3f-Ojc" secondAttribute="trailing" id="kDY-Ho-znw"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="718" id="pjB-vD-LfF"/>
+                                            <constraint firstItem="N9c-Mq-FD5" firstAttribute="bottom" secondItem="SIw-3f-Ojc" secondAttribute="bottom" id="zNd-1u-vCb"/>
+                                        </constraints>
+                                        <viewLayoutGuide key="safeArea" id="CuQ-UG-Tad"/>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="SIw-3f-Ojc"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="pba-rD-hMd"/>
+                                    </scrollView>
+                                    <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XGC-7A-WYc">
+                                        <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="9SB-ck-Cld"/>
+                                        </constraints>
+                                        <items>
+                                            <tabBarItem title="" image="Home tab" id="ONn-VN-qSh"/>
+                                            <tabBarItem tag="1" title="" image="Search Tab" id="8mH-Za-UpK"/>
+                                            <tabBarItem tag="2" title="" image="Category Tab" id="6cQ-5x-MLg"/>
+                                            <tabBarItem tag="3" title="" image="Account Tab" id="90N-g0-xeO"/>
+                                        </items>
+                                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tabBar>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="k60-2u-S7v" firstAttribute="bottom" secondItem="XGC-7A-WYc" secondAttribute="top" id="APH-Si-Zw2"/>
+                                    <constraint firstItem="k60-2u-S7v" firstAttribute="trailing" secondItem="Cej-3y-T95" secondAttribute="trailing" id="i3w-FP-4aT"/>
+                                    <constraint firstItem="k60-2u-S7v" firstAttribute="leading" secondItem="Cej-3y-T95" secondAttribute="leading" id="k0x-sL-UHB"/>
+                                    <constraint firstItem="k60-2u-S7v" firstAttribute="top" secondItem="5C9-zt-Lzq" secondAttribute="bottom" id="nqW-si-qnT"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Cej-3y-T95" firstAttribute="top" secondItem="vGU-gm-0fu" secondAttribute="top" id="CYW-Nf-WXY"/>
+                            <constraint firstItem="Cej-3y-T95" firstAttribute="trailing" secondItem="vGU-gm-0fu" secondAttribute="trailing" id="G3e-Ez-L35"/>
+                            <constraint firstItem="Cej-3y-T95" firstAttribute="leading" secondItem="L6U-Ns-Jw7" secondAttribute="leading" id="WF6-Tt-Sdu"/>
+                            <constraint firstItem="Cej-3y-T95" firstAttribute="bottom" secondItem="L6U-Ns-Jw7" secondAttribute="bottom" id="mF4-Di-cRF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="L6U-Ns-Jw7"/>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="JD5-DT-oae" id="L32-gG-mhL"/>
+                        <outlet property="bagButton" destination="C8h-O8-fSE" id="Hes-F3-85d"/>
+                        <outlet property="navigationItem" destination="08f-aP-zIP" id="9RI-X2-s5k"/>
+                        <outlet property="tabBar" destination="XGC-7A-WYc" id="BM8-oW-mAa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gie-85-smm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="466" y="744"/>
         </scene>
         <!--Shopping Bag View Controller-->
         <scene sceneID="QK8-bQ-046">
@@ -941,9 +1057,9 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Akf-cA-bry"/>
-        <segue reference="Su8-dq-2RF"/>
+        <segue reference="aYh-Uh-Wkt"/>
         <segue reference="xC5-85-3W2"/>
-        <segue reference="zUV-MK-NDI"/>
+        <segue reference="y7Q-ei-6Gs"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Account Tab" width="48" height="44"/>

@@ -17,6 +17,7 @@
 		6E64D93524A2789800D2CE8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80E59C58248446BC0023CA2D /* LaunchScreen.storyboard */; };
 		6E64D98724A27A8500D2CE8B /* ItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 805B0CAA248C56C40071AD5B /* ItemCollectionViewCell.xib */; };
 		6E64D98824A27A8D00D2CE8B /* BagItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8061F99D248D8D5C00E5705B /* BagItemCollectionViewCell.xib */; };
+		6E6908CB24C1D8DB00ED391C /* CategoryProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6908CA24C1D8DB00ED391C /* CategoryProductsViewController.swift */; };
 		6EC3E1E024B4E7FB00D8D355 /* SellCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3E1DE24B4E7FB00D8D355 /* SellCategoryTableViewCell.swift */; };
 		6EC3E1E124B4E7FB00D8D355 /* SellCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EC3E1DF24B4E7FB00D8D355 /* SellCategoryTableViewCell.xib */; };
 		805B0CA4248C2E760071AD5B /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805B0CA3248C2E760071AD5B /* HomePageViewController.swift */; };
@@ -64,6 +65,7 @@
 		6E3107FC24B939150014F298 /* ShowProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		6E3F638524B5063400C061B9 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		6E3F638624B5063400C061B9 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		6E6908CA24C1D8DB00ED391C /* CategoryProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryProductsViewController.swift; sourceTree = "<group>"; };
 		6EC3E1DE24B4E7FB00D8D355 /* SellCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		6EC3E1DF24B4E7FB00D8D355 /* SellCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SellCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		7E723EF5828F8DB3AE774724 /* Pods-CelatoFashion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CelatoFashion.release.xcconfig"; path = "Target Support Files/Pods-CelatoFashion/Pods-CelatoFashion.release.xcconfig"; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				80E59C51248446B90023CA2D /* ViewController.swift */,
 				80CF6303249177A500FDF57E /* RegisterViewController.swift */,
 				805B0CA3248C2E760071AD5B /* HomePageViewController.swift */,
+				6E6908CA24C1D8DB00ED391C /* CategoryProductsViewController.swift */,
 				8061F9A0248DC60500E5705B /* ShowProductViewController.swift */,
 				80CF6307249177F700FDF57E /* SearchViewController.swift */,
 				80CF63092491782100FDF57E /* CategoryViewController.swift */,
@@ -233,7 +236,6 @@
 				80E59C46248446B90023CA2D /* Sources */,
 				80E59C47248446B90023CA2D /* Frameworks */,
 				6E64D93124A277B500D2CE8B /* Resources */,
-				69BC7602660F9D86179815FB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -271,7 +273,6 @@
 				80E59C67248446BC0023CA2D /* Sources */,
 				80E59C68248446BC0023CA2D /* Frameworks */,
 				80E59C69248446BC0023CA2D /* Resources */,
-				85C7678D157079BB7410AC1A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -404,40 +405,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		69BC7602660F9D86179815FB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CelatoFashion/Pods-CelatoFashion-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CelatoFashion/Pods-CelatoFashion-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CelatoFashion/Pods-CelatoFashion-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		85C7678D157079BB7410AC1A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CelatoFashion-CelatoFashionUITests/Pods-CelatoFashion-CelatoFashionUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CelatoFashion-CelatoFashionUITests/Pods-CelatoFashion-CelatoFashionUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CelatoFashion-CelatoFashionUITests/Pods-CelatoFashion-CelatoFashionUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B627483D52FAD671DA50921C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -467,6 +434,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E6908CB24C1D8DB00ED391C /* CategoryProductsViewController.swift in Sources */,
 				805B0CAB248C56C40071AD5B /* ItemCollectionViewCell.swift in Sources */,
 				6E3107FD24B939150014F298 /* ShowProductCollectionViewCell.swift in Sources */,
 				80CF6308249177F700FDF57E /* SearchViewController.swift in Sources */,
