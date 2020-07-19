@@ -710,8 +710,8 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Cej-3y-T95" firstAttribute="top" secondItem="vGU-gm-0fu" secondAttribute="top" id="CYW-Nf-WXY"/>
-                            <constraint firstItem="Cej-3y-T95" firstAttribute="trailing" secondItem="vGU-gm-0fu" secondAttribute="trailing" id="G3e-Ez-L35"/>
+                            <constraint firstItem="Cej-3y-T95" firstAttribute="top" secondItem="L6U-Ns-Jw7" secondAttribute="top" id="CYW-Nf-WXY"/>
+                            <constraint firstItem="Cej-3y-T95" firstAttribute="trailing" secondItem="L6U-Ns-Jw7" secondAttribute="trailing" id="G3e-Ez-L35"/>
                             <constraint firstItem="Cej-3y-T95" firstAttribute="leading" secondItem="L6U-Ns-Jw7" secondAttribute="leading" id="WF6-Tt-Sdu"/>
                             <constraint firstItem="Cej-3y-T95" firstAttribute="bottom" secondItem="L6U-Ns-Jw7" secondAttribute="bottom" id="mF4-Di-cRF"/>
                         </constraints>
