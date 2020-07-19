@@ -720,7 +720,8 @@
                     <connections>
                         <outlet property="backButton" destination="JD5-DT-oae" id="L32-gG-mhL"/>
                         <outlet property="bagButton" destination="C8h-O8-fSE" id="Hes-F3-85d"/>
-                        <outlet property="navigationItem" destination="08f-aP-zIP" id="9RI-X2-s5k"/>
+                        <outlet property="collectionView" destination="N9c-Mq-FD5" id="50h-xV-sKJ"/>
+                        <outlet property="navigationBarItem" destination="08f-aP-zIP" id="FdA-LC-tj4"/>
                         <outlet property="tabBar" destination="XGC-7A-WYc" id="BM8-oW-mAa"/>
                     </connections>
                 </viewController>

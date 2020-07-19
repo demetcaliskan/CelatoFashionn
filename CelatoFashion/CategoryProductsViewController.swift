@@ -10,10 +10,12 @@ import UIKit
 
 class CategoryProductsViewController: UIViewController {
     
-    @IBOutlet weak var navigationItem: UINavigationItem!
+    
+    @IBOutlet weak var navigationBarItem: UINavigationItem!
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var bagButton: UIBarButtonItem!
     @IBOutlet weak var tabBar: UITabBar!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var collectionViewFlowLayout : UICollectionViewFlowLayout!
     let cellIdentifier = "ItemCollectionViewCell"
