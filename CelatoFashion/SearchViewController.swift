@@ -68,10 +68,10 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
        
         filteredProducts = products.filter { product in
             
-            if product.getName() == searchText {
+            if product.getName() == searchText || product.getName().lowercased() == searchText.lowercased() {
                 return true
             }
-            else if product.getCategory() == searchText {
+            else if product.getCategory() == searchText || product.getCategory().lowercased() == searchText.lowercased() {
                 return true
             }
             else {

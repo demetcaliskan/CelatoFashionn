@@ -45,7 +45,6 @@ class ShoppingBagViewController: UIViewController {
         var total : Double = 0.0
         let defaults = UserDefaults.standard
         let addedProducts = defaults.array(forKey: "addedProducts")
-        print(addedProducts)
         for id in addedProducts! {
             Firestore.firestore().collection("products").document(id as! String).getDocument { (document, error) in
                 
@@ -77,6 +76,9 @@ class ShoppingBagViewController: UIViewController {
         
         }
         
+    }
+    @IBAction func buyButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "buyToComplete", sender: self)
     }
     func btnDesign()
     {
@@ -123,6 +125,9 @@ class ShoppingBagViewController: UIViewController {
             collectionView.setCollectionViewLayout(collectionViewFlowLayout, animated: true)
         }
     }
+    func reloadData() {
+        self.collectionView.reloadData()
+    }
 
 }
 
@@ -136,7 +141,7 @@ extension ShoppingBagViewController: UICollectionViewDelegate, UICollectionViewD
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! BagItemCollectionViewCell
         
         cell.productImage.image = UIImage(named: items[indexPath.item].collectionViewName)
-        
+        cell.delegate = self
         cell.productName.text = products[indexPath.item].getName()
         cell.productSize.text = products[indexPath.item].getSize()
         cell.productPrice.text = "$" + products[indexPath.item].getPrice()
@@ -155,18 +160,14 @@ extension ShoppingBagViewController: BagItemCollectionViewCellDelegate
         if let indexPath = collectionView?.indexPath(for: cell)
         {
             //delete the cell from datasource
-            print("delete triggered")
+            print("delete triggered \(indexPath.item)")
+            /*
             let userDefault = UserDefaults.standard
             var productIds = userDefault.array(forKey: "addedProducts") as! [String]
-            
-            for i in 0..<productIds.count {
-                if(products[indexPath.item].getId() == productIds[i]) {
-                    productIds.remove(at: i)
-                }
-            }
+            productIds.remove(at: indexPath.item)
             userDefault.set(productIds, forKey: "addedProducts")
-            //delete the cell at that index path from the collection view
-            collectionView?.deleteItems(at: [indexPath])
+            collectionView.deleteItems(at: indexPath)
+            */
         }
     }
 }

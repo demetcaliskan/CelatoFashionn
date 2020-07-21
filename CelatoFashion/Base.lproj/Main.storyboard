@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zk7-Ct-LYo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zk7-Ct-LYo">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -482,8 +482,7 @@
                                                 <barButtonItem key="leftBarButtonItem" title="Item" image="Left Accessory" id="DJG-Zi-4wb">
                                                     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <connections>
-                                                        <action selector="showToHomePressed:" destination="mzy-gf-C5g" id="0eE-6c-DYw"/>
-                                                        <segue destination="zk7-Ct-LYo" kind="show" identifier="showToHome" id="y7Q-ei-6Gs"/>
+                                                        <segue destination="zk7-Ct-LYo" kind="show" identifier="showToHome" id="lOk-l7-lX3"/>
                                                     </connections>
                                                 </barButtonItem>
                                             </navigationItem>
@@ -633,7 +632,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="161"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order is successful." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTn-7u-GXa">
-                                                        <rect key="frame" x="58.5" y="59.5" width="297" height="42"/>
+                                                        <rect key="frame" x="52.5" y="60" width="309.5" height="41"/>
                                                         <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="35"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </label>
@@ -670,11 +669,15 @@
                                                 <rect key="frame" x="0.0" y="202" width="414" height="202"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0K-JQ-gPw">
-                                                        <rect key="frame" x="49" y="74" width="316" height="54"/>
+                                                        <rect key="frame" x="51" y="74.5" width="312" height="53"/>
                                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="35"/>
                                                         <state key="normal" title="Continue Shopping.">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="continueShoppingPressed:" destination="B8M-MI-n0V" eventType="touchUpInside" id="JHA-a6-lc7"/>
+                                                            <segue destination="zk7-Ct-LYo" kind="show" identifier="completeToHome" id="fzI-HX-zOn"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -698,6 +701,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2Zy-UH-d83"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Fvx-wK-zMU"/>
                     <connections>
                         <outlet property="collectionView" destination="q6s-1U-7Ka" id="rT4-8S-IuS"/>
                         <outlet property="continueShopButton" destination="D0K-JQ-gPw" id="wZA-qB-dRU"/>
@@ -740,7 +744,8 @@
                                                 <barButtonItem key="leftBarButtonItem" title="Item" image="Left Accessory" id="JD5-DT-oae">
                                                     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <connections>
-                                                        <action selector="showToHomePressed:" destination="mzy-gf-C5g" id="bJ1-LL-s0c"/>
+                                                        <action selector="backButtonPressed:" destination="gt5-jf-sM0" id="drZ-2q-dGv"/>
+                                                        <segue destination="R6i-PK-ApV" kind="show" identifier="categoryListToShow" id="Fep-Lz-k9P"/>
                                                     </connections>
                                                 </barButtonItem>
                                                 <barButtonItem key="rightBarButtonItem" title="Item" image="bag" catalog="system" id="C8h-O8-fSE">
@@ -813,12 +818,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="L6U-Ns-Jw7"/>
                     </view>
+                    <navigationItem key="navigationItem" id="tOG-jT-WDW"/>
                     <connections>
-                        <outlet property="backButton" destination="JD5-DT-oae" id="L32-gG-mhL"/>
                         <outlet property="bagButton" destination="C8h-O8-fSE" id="Hes-F3-85d"/>
                         <outlet property="collectionView" destination="N9c-Mq-FD5" id="50h-xV-sKJ"/>
                         <outlet property="navigationBarItem" destination="08f-aP-zIP" id="FdA-LC-tj4"/>
                         <outlet property="tabBar" destination="XGC-7A-WYc" id="BM8-oW-mAa"/>
+                        <segue destination="mzy-gf-C5g" kind="show" identifier="categoryToShow" id="bZz-wa-Fwx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gie-85-smm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -921,6 +927,10 @@
                                                         <state key="normal" title="BUY">
                                                             <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="buyButtonPressed:" destination="5pv-uL-4Ob" eventType="touchUpInside" id="FJo-og-sHq"/>
+                                                            <segue destination="B8M-MI-n0V" kind="show" identifier="buyToComplete" id="Zf3-9b-pm6"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -1145,6 +1155,7 @@
                         <outlet property="tabBar" destination="1ir-Cs-krW" id="gRl-R9-sbh"/>
                         <outlet property="tableView" destination="Ey9-sc-O20" id="Q00-ky-Ovk"/>
                         <outlet property="womenBtn" destination="zjN-QL-Avd" id="YHN-Xn-xzz"/>
+                        <segue destination="gt5-jf-sM0" kind="show" identifier="categoryListToShow" id="Xyy-IZ-iAo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iah-f9-76o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1154,9 +1165,10 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="RQy-MV-BT6"/>
+        <segue reference="Fep-Lz-k9P"/>
         <segue reference="aYh-Uh-Wkt"/>
-        <segue reference="xC5-85-3W2"/>
-        <segue reference="y7Q-ei-6Gs"/>
+        <segue reference="bZz-wa-Fwx"/>
+        <segue reference="fzI-HX-zOn"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Account Tab" width="48" height="44"/>

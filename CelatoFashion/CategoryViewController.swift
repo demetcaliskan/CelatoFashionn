@@ -18,6 +18,8 @@ class CategoryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var categories = [""]
+    var selectedCategory: String = ""
+    
     let ecru = UIColor(displayP3Red: 242.0/255, green: 242.0/255, blue: 247.0/255, alpha: 1.0)
     
     override func viewDidLoad() {
@@ -85,9 +87,16 @@ class CategoryViewController: UIViewController {
 
 extension CategoryViewController : UITableViewDelegate
 {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped a category!")
+        selectedCategory = self.categories[indexPath.item]
+        print("selectedCategory is \(selectedCategory)")
+        let userDefault = UserDefaults.standard
+        userDefault.set(selectedCategory, forKey: "selectedCategory")
+        performSegue(withIdentifier: "categoryListToShow", sender: self)
     }
+    
 }
 
 extension CategoryViewController: UITabBarDelegate

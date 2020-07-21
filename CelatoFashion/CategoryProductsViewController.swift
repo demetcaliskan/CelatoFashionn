@@ -7,18 +7,20 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class CategoryProductsViewController: UIViewController {
     
     
     @IBOutlet weak var navigationBarItem: UINavigationItem!
-    @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var bagButton: UIBarButtonItem!
     @IBOutlet weak var tabBar: UITabBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
     var collectionViewFlowLayout : UICollectionViewFlowLayout!
     let cellIdentifier = "ItemCollectionViewCell"
+    
+    var selectedCategory: String = ""
     
     var items : [Item] = [Item(collectionViewName: "Product 1"),
                           Item(collectionViewName: "Product 2"),
@@ -27,12 +29,20 @@ class CategoryProductsViewController: UIViewController {
                           Item(collectionViewName: "Product 1"),
                           Item(collectionViewName: "Product 1")]
     
+    var products: [NotProduct] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
         self.tabBar.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
+        let userDefault = UserDefaults.standard
+        selectedCategory = userDefault.string(forKey: "selectedCategory")!
+        print(selectedCategory)
+        navigationBarItem.title = selectedCategory
+        loadProducts()
+        
     }
     
     override func viewWillLayoutSubviews()
@@ -47,6 +57,38 @@ class CategoryProductsViewController: UIViewController {
         collectionView.dataSource = self
         let nib = UINib(nibName: "ItemCollectionViewCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: cellIdentifier)
+    }
+    private func loadProducts() {
+        
+        Firestore.firestore().collection("products").getDocuments { (snapshot, error) in
+            if let err = error {
+                print("Error fetching docs: \(err)")
+            }
+            else {
+                for document in (snapshot?.documents)! {
+                    
+                    let data = document.data()
+                    let category = data["category"] as! String
+                    if(category == self.selectedCategory || category == self.selectedCategory.lowercased()) {
+                        
+                        let product = NotProduct(
+                            name: data["name"] as! String,
+                            amount: data["amount"] as! String,
+                            category: data["category"] as! String,
+                            color: data["color"] as! String,
+                            price: data["price"] as! String,
+                            size: data["size"] as! String,
+                            id: data["id"] as! String,
+                            gender: data["gender"] as! String)
+                    
+                        print(document.data())
+                    
+                        self.products.append(product)
+                        }
+                    self.collectionView.reloadData()
+                }
+            }
+        }
     }
     
     private func setupCollectionViewItemSize()
@@ -93,6 +135,11 @@ class CategoryProductsViewController: UIViewController {
             collectionView.setCollectionViewLayout(collectionViewFlowLayout, animated: true)
         }
     }
+    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "categoryListToShow", sender: self)
+    }
+    
 
 }
 
@@ -134,20 +181,34 @@ extension CategoryProductsViewController: UITabBarDelegate
 extension CategoryProductsViewController: UICollectionViewDelegate, UICollectionViewDataSource
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        return products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ItemCollectionViewCell
         
         cell.itemImage.image = UIImage(named: items[indexPath.item].collectionViewName)
-        cell.itemName.text = "item name"
-        cell.itemPrice.text = "$500"
+        cell.itemName.text = products[indexPath.item].getName()
+        cell.itemPrice.text = products[indexPath.item].getPrice()
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         print("DidSelectItemAt \(indexPath)")
+        
+        let product = products[indexPath.item]
+        let defaults = UserDefaults.standard
+        
+        defaults.set(product.getName(), forKey: "name")
+        defaults.set(product.getPrice(), forKey: "price")
+        defaults.set(product.getSize(), forKey: "size")
+        defaults.set(product.getAmount(), forKey: "amount")
+        defaults.set(product.getColor(), forKey: "color")
+        defaults.set(product.getId(), forKey: "id")
+        defaults.set(product.getCategory(), forKey: "category")
+        defaults.set(product.getGender(), forKey: "gender")
+        
+        performSegue(withIdentifier: "categoryToShow", sender: self)
     }
 }

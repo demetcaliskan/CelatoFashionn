@@ -46,6 +46,9 @@ class CompleteOrderViewController: UIViewController {
         continueShopButton.layer.borderColor = UIColor.black.cgColor
         continueShopButton.contentEdgeInsets = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
     }
+    @IBAction func continueShoppingPressed(_ sender: Any) {
+        performSegue(withIdentifier: "completeToHome", sender: self)
+    }
     
     private func setupCollectionViewItemSize()
     {
