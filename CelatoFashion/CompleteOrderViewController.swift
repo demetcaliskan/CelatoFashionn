@@ -28,7 +28,6 @@ class CompleteOrderViewController: UIViewController {
         super.viewDidLoad()
         btnDesign()
         setupCollectionView()
-
     }
     
     private func setupCollectionView()
@@ -46,15 +45,13 @@ class CompleteOrderViewController: UIViewController {
         continueShopButton.layer.borderWidth = 2
         continueShopButton.layer.borderColor = UIColor.black.cgColor
         continueShopButton.contentEdgeInsets = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
-        
-//        collectionView.layer.borderWidth = 0.5
-//        collectionView.layer.borderColor = UIColor.darkGray.cgColor
     }
     
     private func setupCollectionViewItemSize()
     {
         if collectionViewFlowLayout == nil
         {
+            //input array's size determines number of items per row 
             var numberOfItemsPerRow : CGFloat
             if imgArray.count < 3
             {
