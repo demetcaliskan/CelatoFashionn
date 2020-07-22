@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zk7-Ct-LYo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zk7-Ct-LYo">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -39,75 +39,169 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="POE-5C-HDz">
+                            <stackView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mWx-Gb-mxt">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sJD-AH-0fB" userLabel="Top View">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfR-PT-jGO" userLabel="Top View">
                                         <rect key="frame" x="20" y="8" width="374" height="267.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-1" translatesAutoresizingMaskIntoConstraints="NO" id="2OI-qf-aVO">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="logo-1" translatesAutoresizingMaskIntoConstraints="NO" id="tFz-jL-yVR">
                                                 <rect key="frame" x="59.5" y="0.0" width="255" height="267.5"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="2OI-qf-aVO" secondAttribute="height" multiplier="61:64" id="4Ru-9j-bRa"/>
+                                                    <constraint firstAttribute="width" secondItem="tFz-jL-yVR" secondAttribute="height" multiplier="61:64" id="kUv-3r-8SW"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="2OI-qf-aVO" firstAttribute="top" secondItem="sJD-AH-0fB" secondAttribute="top" id="2rW-o0-GBY"/>
-                                            <constraint firstAttribute="bottom" secondItem="2OI-qf-aVO" secondAttribute="bottom" id="x6X-Tg-8nA"/>
-                                            <constraint firstItem="2OI-qf-aVO" firstAttribute="centerX" secondItem="sJD-AH-0fB" secondAttribute="centerX" id="zmH-wT-sEO"/>
+                                            <constraint firstItem="tFz-jL-yVR" firstAttribute="top" secondItem="jfR-PT-jGO" secondAttribute="top" id="1uH-Rg-aF5"/>
+                                            <constraint firstAttribute="bottom" secondItem="tFz-jL-yVR" secondAttribute="bottom" id="LJx-dX-7Yv"/>
+                                            <constraint firstItem="tFz-jL-yVR" firstAttribute="centerX" secondItem="jfR-PT-jGO" secondAttribute="centerX" id="XEP-Pw-hay"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZAY-LS-C9w" userLabel="Middle View">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akm-Tx-IPz" userLabel="Middle View">
                                         <rect key="frame" x="20" y="275.5" width="374" height="267"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VUp-SZ-vv4">
-                                                <rect key="frame" x="66" y="73.5" width="242" height="120"/>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9m-AA-299">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="267"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QTt-pA-cga">
-                                                        <rect key="frame" x="0.0" y="0.0" width="242" height="33.5"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="SFProDisplay-Thin" family="SF Pro Display" pointSize="24"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES" textContentType="email"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oEB-Dx-6ta">
-                                                        <rect key="frame" x="0.0" y="43.5" width="242" height="33"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="SFProText-Thin" family="SF Pro Text" pointSize="24"/>
-                                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password Again" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Snf-nP-gYs">
-                                                        <rect key="frame" x="0.0" y="86.5" width="242" height="33.5"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="SFProText-Thin" family="SF Pro Text" pointSize="24"/>
-                                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
-                                                    </textField>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yc5-he-xkJ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="534"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="d7D-hf-d8C">
+                                                                <rect key="frame" x="66" y="0.0" width="242" height="534"/>
+                                                                <subviews>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ukj-yY-BvA">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="242" height="126"/>
+                                                                        <subviews>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7sp-72-0zK">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="242" height="35"/>
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <fontDescription key="fontDescription" name="SFProDisplay-Thin" family="SF Pro Display" pointSize="24"/>
+                                                                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                                                                            </textField>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Gx-Cg-9rI">
+                                                                                <rect key="frame" x="0.0" y="45" width="242" height="35.5"/>
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <fontDescription key="fontDescription" name="SFProDisplay-Thin" family="SF Pro Display" pointSize="24"/>
+                                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                                            </textField>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password Again" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rNY-F0-jT5">
+                                                                                <rect key="frame" x="0.0" y="90.5" width="242" height="35.5"/>
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <fontDescription key="fontDescription" name="SFProDisplay-Thin" family="SF Pro Display" pointSize="24"/>
+                                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                                            </textField>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PVh-uW-oxW">
+                                                                        <rect key="frame" x="0.0" y="136" width="242" height="126"/>
+                                                                        <subviews>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name Surname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZNH-hY-fGq">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="242" height="35"/>
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <fontDescription key="fontDescription" name="SFProDisplay-Thin" family="SF Pro Display" pointSize="24"/>
+                                                                                <textInputTraits key="textInputTraits"/>
+                                                                            </textField>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WQV-eI-Bal">
+                                                                                <rect key="frame" x="0.0" y="45" width="242" height="35.5"/>
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <fontDescription key="fontDescription" name="SFProDisplay-Thin" family="SF Pro Display" pointSize="24"/>
+                                                                                <textInputTraits key="textInputTraits" textContentType="tel"/>
+                                                                            </textField>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="District" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iVW-08-Qi9">
+                                                                                <rect key="frame" x="0.0" y="90.5" width="242" height="35.5"/>
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <fontDescription key="fontDescription" name="SFProDisplay-Thin" family="SF Pro Display" pointSize="24"/>
+                                                                                <textInputTraits key="textInputTraits"/>
+                                                                            </textField>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bXc-2L-3oN">
+                                                                        <rect key="frame" x="0.0" y="272" width="242" height="126"/>
+                                                                        <subviews>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sf6-PZ-m8e">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="242" height="35"/>
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <fontDescription key="fontDescription" name="SFProDisplay-Thin" family="SF Pro Display" pointSize="24"/>
+                                                                                <textInputTraits key="textInputTraits" textContentType="address-level2"/>
+                                                                            </textField>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pRh-8B-PUd">
+                                                                                <rect key="frame" x="0.0" y="45" width="242" height="35.5"/>
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <fontDescription key="fontDescription" name="SFProDisplay-Thin" family="SF Pro Display" pointSize="24"/>
+                                                                                <textInputTraits key="textInputTraits" textContentType="country-name"/>
+                                                                            </textField>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Postal Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WLb-RU-3Jj">
+                                                                                <rect key="frame" x="0.0" y="90.5" width="242" height="35.5"/>
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <fontDescription key="fontDescription" name="SFProDisplay-Thin" family="SF Pro Display" pointSize="24"/>
+                                                                                <textInputTraits key="textInputTraits" textContentType="postal-code"/>
+                                                                            </textField>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lCz-vk-6Ik">
+                                                                        <rect key="frame" x="0.0" y="408" width="242" height="126"/>
+                                                                        <subviews>
+                                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Nj8-eq-gEW">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="242" height="126"/>
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <fontDescription key="fontDescription" name="SFProDisplay-Thin" family="SF Pro Display" pointSize="24"/>
+                                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" textContentType="street-address"/>
+                                                                                <dataDetectorType key="dataDetectorTypes" address="YES"/>
+                                                                            </textView>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="242" id="xzz-Bl-vTA"/>
+                                                                </constraints>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstItem="d7D-hf-d8C" firstAttribute="bottom" secondItem="Yc5-he-xkJ" secondAttribute="bottom" id="BAY-mW-nNp"/>
+                                                            <constraint firstItem="d7D-hf-d8C" firstAttribute="centerX" secondItem="Yc5-he-xkJ" secondAttribute="centerX" id="gLR-zU-ay3"/>
+                                                            <constraint firstAttribute="height" constant="534" id="l3M-jN-lUm"/>
+                                                            <constraint firstItem="d7D-hf-d8C" firstAttribute="top" secondItem="Yc5-he-xkJ" secondAttribute="top" id="xjm-X8-SU1"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="242" id="A46-wx-i7M"/>
-                                                    <constraint firstAttribute="width" secondItem="VUp-SZ-vv4" secondAttribute="height" multiplier="242:120" id="IbD-2J-WzU"/>
-                                                    <constraint firstAttribute="height" constant="120" id="kCY-6n-DFZ"/>
+                                                    <constraint firstItem="Yc5-he-xkJ" firstAttribute="bottom" secondItem="1KZ-sp-xNC" secondAttribute="bottom" id="Aks-Bh-etH"/>
+                                                    <constraint firstItem="Yc5-he-xkJ" firstAttribute="leading" secondItem="1KZ-sp-xNC" secondAttribute="leading" id="JyM-JH-jZ6"/>
+                                                    <constraint firstItem="Yc5-he-xkJ" firstAttribute="trailing" secondItem="1KZ-sp-xNC" secondAttribute="trailing" id="Qf4-vP-WXt"/>
+                                                    <constraint firstItem="Yc5-he-xkJ" firstAttribute="width" secondItem="SjW-1O-l27" secondAttribute="width" id="c1D-Ud-712"/>
+                                                    <constraint firstItem="Yc5-he-xkJ" firstAttribute="top" secondItem="1KZ-sp-xNC" secondAttribute="top" id="oi6-08-86s"/>
                                                 </constraints>
-                                            </stackView>
+                                                <viewLayoutGuide key="contentLayoutGuide" id="1KZ-sp-xNC"/>
+                                                <viewLayoutGuide key="frameLayoutGuide" id="SjW-1O-l27"/>
+                                            </scrollView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="VUp-SZ-vv4" firstAttribute="centerX" secondItem="ZAY-LS-C9w" secondAttribute="centerX" id="GkS-Px-Yau"/>
-                                            <constraint firstItem="VUp-SZ-vv4" firstAttribute="centerY" secondItem="ZAY-LS-C9w" secondAttribute="centerY" id="hR3-2U-coJ"/>
+                                            <constraint firstItem="w9m-AA-299" firstAttribute="leading" secondItem="akm-Tx-IPz" secondAttribute="leading" id="2Hk-Vk-ayk"/>
+                                            <constraint firstItem="w9m-AA-299" firstAttribute="bottom" secondItem="akm-Tx-IPz" secondAttribute="bottom" id="49Y-Hf-tme"/>
+                                            <constraint firstItem="w9m-AA-299" firstAttribute="trailing" secondItem="akm-Tx-IPz" secondAttribute="trailing" id="dtq-OY-1TW"/>
+                                            <constraint firstItem="w9m-AA-299" firstAttribute="top" secondItem="akm-Tx-IPz" secondAttribute="top" id="n5L-is-TsP"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Slf-dx-TzK" userLabel="Bottom View">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XHI-Vs-h5V" userLabel="Bottom View">
                                         <rect key="frame" x="20" y="542.5" width="374" height="267.5"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="z6a-lF-pfj">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="C1Z-uK-Qyg">
                                                 <rect key="frame" x="84.5" y="47" width="205" height="174"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="g7a-2a-rsN" userLabel="Button SV">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6ZH-W4-l73" userLabel="Button SV">
                                                         <rect key="frame" x="0.0" y="0.0" width="205" height="140"/>
                                                         <subviews>
-                                                            <button opaque="NO" alpha="0.89999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZ1-cV-1aG">
+                                                            <button opaque="NO" alpha="0.89999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vex-b8-ei5">
                                                                 <rect key="frame" x="0.0" y="0.0" width="205" height="60"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="24"/>
@@ -115,10 +209,10 @@
                                                                     <color key="titleColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="registerPressed:" destination="Ugn-br-6Tu" eventType="touchUpInside" id="U2P-rQ-gsw"/>
+                                                                    <action selector="registerPressed:" destination="Ugn-br-6Tu" eventType="touchUpInside" id="Ots-gf-HoO"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" alpha="0.89999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="viI-JT-Spr">
+                                                            <button opaque="NO" alpha="0.89999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGp-yu-FWh">
                                                                 <rect key="frame" x="0.0" y="80" width="205" height="60"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="24"/>
@@ -126,23 +220,22 @@
                                                                     <color key="titleColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="loginPressed:" destination="Ugn-br-6Tu" eventType="touchUpInside" id="gTU-tP-gNg"/>
-                                                                    <segue destination="BYZ-38-t0r" kind="show" identifier="registerToLogin" id="RQy-MV-BT6"/>
+                                                                    <action selector="loginPressed:" destination="Ugn-br-6Tu" eventType="touchUpInside" id="pvw-qU-Z2h"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="205" id="c3w-rQ-TLn"/>
-                                                            <constraint firstAttribute="height" constant="140" id="lfc-ku-Nle"/>
-                                                            <constraint firstAttribute="width" secondItem="g7a-2a-rsN" secondAttribute="height" multiplier="41:28" id="zLa-z8-tlt"/>
+                                                            <constraint firstAttribute="height" constant="140" id="05Z-2d-IVw"/>
+                                                            <constraint firstAttribute="width" secondItem="6ZH-W4-l73" secondAttribute="height" multiplier="41:28" id="JF3-um-1J5"/>
+                                                            <constraint firstAttribute="width" constant="205" id="kiD-KY-dR2"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account? Login." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2UO-gs-17P">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account? Login." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdh-hQ-cLD">
                                                         <rect key="frame" x="0.0" y="140" width="205" height="34"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="205" id="PZx-H0-vQ8"/>
-                                                            <constraint firstAttribute="height" constant="34" id="myN-YA-8ha"/>
-                                                            <constraint firstAttribute="width" secondItem="2UO-gs-17P" secondAttribute="height" multiplier="205:34" id="sJy-Nz-4Ka"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="205" id="9a4-0i-3Is"/>
+                                                            <constraint firstAttribute="height" constant="34" id="LKJ-p3-TMr"/>
+                                                            <constraint firstAttribute="width" secondItem="Wdh-hQ-cLD" secondAttribute="height" multiplier="205:34" id="O7y-j6-e6g"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="SFProText-Thin" family="SF Pro Text" pointSize="13"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -150,40 +243,41 @@
                                                     </label>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="2UO-gs-17P" firstAttribute="centerX" secondItem="z6a-lF-pfj" secondAttribute="centerX" id="jkJ-T5-KHa"/>
-                                                    <constraint firstItem="g7a-2a-rsN" firstAttribute="centerX" secondItem="z6a-lF-pfj" secondAttribute="centerX" id="s4r-bb-i4H"/>
+                                                    <constraint firstItem="Wdh-hQ-cLD" firstAttribute="centerX" secondItem="C1Z-uK-Qyg" secondAttribute="centerX" id="8Ex-m0-cSx"/>
+                                                    <constraint firstItem="6ZH-W4-l73" firstAttribute="centerX" secondItem="C1Z-uK-Qyg" secondAttribute="centerX" id="Qiz-su-QL6"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="z6a-lF-pfj" firstAttribute="centerY" secondItem="Slf-dx-TzK" secondAttribute="centerY" id="84t-AS-OvO"/>
-                                            <constraint firstItem="z6a-lF-pfj" firstAttribute="centerX" secondItem="Slf-dx-TzK" secondAttribute="centerX" id="TVs-JN-rdQ"/>
+                                            <constraint firstItem="C1Z-uK-Qyg" firstAttribute="centerY" secondItem="XHI-Vs-h5V" secondAttribute="centerY" id="VDN-AA-Qnn"/>
+                                            <constraint firstItem="C1Z-uK-Qyg" firstAttribute="centerX" secondItem="XHI-Vs-h5V" secondAttribute="centerX" id="fHw-AO-uEr"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="ZAY-LS-C9w" firstAttribute="bottom" secondItem="Slf-dx-TzK" secondAttribute="top" id="4JC-o6-JA7"/>
-                                    <constraint firstItem="Slf-dx-TzK" firstAttribute="top" secondItem="ZAY-LS-C9w" secondAttribute="bottom" id="DBa-eS-chM"/>
-                                    <constraint firstItem="ZAY-LS-C9w" firstAttribute="top" secondItem="sJD-AH-0fB" secondAttribute="bottom" id="ee7-rq-rT7"/>
-                                    <constraint firstItem="sJD-AH-0fB" firstAttribute="bottom" secondItem="ZAY-LS-C9w" secondAttribute="top" id="flb-gj-Rtt"/>
-                                </constraints>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="POE-5C-HDz" firstAttribute="trailing" secondItem="TDY-Ew-RLr" secondAttribute="trailing" id="AYi-8j-hCO"/>
-                            <constraint firstItem="POE-5C-HDz" firstAttribute="leading" secondItem="TDY-Ew-RLr" secondAttribute="leading" id="Ke9-Bl-Hzx"/>
-                            <constraint firstItem="POE-5C-HDz" firstAttribute="top" secondItem="TDY-Ew-RLr" secondAttribute="top" id="LkF-1g-kme"/>
-                            <constraint firstItem="POE-5C-HDz" firstAttribute="bottom" secondItem="TDY-Ew-RLr" secondAttribute="bottom" id="YkL-X4-wnq"/>
+                            <constraint firstItem="mWx-Gb-mxt" firstAttribute="top" secondItem="TDY-Ew-RLr" secondAttribute="top" id="1KB-dY-TOC"/>
+                            <constraint firstItem="mWx-Gb-mxt" firstAttribute="leading" secondItem="TDY-Ew-RLr" secondAttribute="leading" id="Vz2-Zf-fHX"/>
+                            <constraint firstItem="mWx-Gb-mxt" firstAttribute="bottom" secondItem="TDY-Ew-RLr" secondAttribute="bottom" id="eCu-l9-2Ab"/>
+                            <constraint firstItem="mWx-Gb-mxt" firstAttribute="trailing" secondItem="TDY-Ew-RLr" secondAttribute="trailing" id="s1O-6u-t1V"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TDY-Ew-RLr"/>
                     </view>
                     <navigationItem key="navigationItem" id="tWp-xp-zOa"/>
                     <connections>
-                        <outlet property="emailTextField" destination="QTt-pA-cga" id="M3R-gz-D83"/>
-                        <outlet property="passwordAgainTextField" destination="Snf-nP-gYs" id="lZ1-ws-OPi"/>
-                        <outlet property="passwordTextField" destination="oEB-Dx-6ta" id="AIE-Jg-9Fb"/>
+                        <outlet property="addressTextView" destination="Nj8-eq-gEW" id="V7D-kn-ova"/>
+                        <outlet property="cityTextField" destination="sf6-PZ-m8e" id="Wna-8d-Zos"/>
+                        <outlet property="countryTextField" destination="pRh-8B-PUd" id="kA6-qI-y9N"/>
+                        <outlet property="districtTextField" destination="iVW-08-Qi9" id="Bp7-GK-Gd5"/>
+                        <outlet property="emailTextField" destination="7sp-72-0zK" id="T1P-YJ-NYm"/>
+                        <outlet property="nameSurnameTextField" destination="ZNH-hY-fGq" id="jgm-ml-Cl1"/>
+                        <outlet property="passwordAgainTextField" destination="rNY-F0-jT5" id="KZh-zS-Qw9"/>
+                        <outlet property="passwordTextField" destination="6Gx-Cg-9rI" id="6Ph-91-G32"/>
+                        <outlet property="phoneNumberTextField" destination="WQV-eI-Bal" id="uVc-E2-EcT"/>
+                        <outlet property="postCodeTextField" destination="WLb-RU-3Jj" id="bys-eh-CIW"/>
                         <segue destination="5pv-uL-4Ob" kind="show" identifier="registerToBag" id="yjD-TH-VnT"/>
                     </connections>
                 </viewController>
@@ -235,7 +329,7 @@
                                                         <rect key="frame" x="0.0" y="45" width="242" height="35"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="SFProText-Thin" family="SF Pro Text" pointSize="24"/>
+                                                        <fontDescription key="fontDescription" name="SFProDisplay-Thin" family="SF Pro Display" pointSize="24"/>
                                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                                     </textField>
                                                 </subviews>
@@ -562,7 +656,7 @@
                                         <rect key="frame" x="0.0" y="758" width="414" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mvl-np-Zbo">
-                                                <rect key="frame" x="134.5" y="5" width="145" height="40"/>
+                                                <rect key="frame" x="138.5" y="4.5" width="137" height="41"/>
                                                 <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="24"/>
                                                 <state key="normal" title="ADD TO BAG">
                                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -633,7 +727,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="161"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order is successful." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTn-7u-GXa">
-                                                        <rect key="frame" x="52.5" y="60" width="309.5" height="41"/>
+                                                        <rect key="frame" x="58.5" y="59.5" width="297" height="42"/>
                                                         <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="35"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </label>
@@ -670,7 +764,7 @@
                                                 <rect key="frame" x="0.0" y="202" width="414" height="202"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0K-JQ-gPw">
-                                                        <rect key="frame" x="51" y="74.5" width="312" height="53"/>
+                                                        <rect key="frame" x="49" y="74" width="316" height="54"/>
                                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="35"/>
                                                         <state key="normal" title="Continue Shopping.">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -923,7 +1017,7 @@
                                                 <rect key="frame" x="0.0" y="66" width="414" height="66"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiU-Wu-IZ8">
-                                                        <rect key="frame" x="182" y="13" width="50" height="40"/>
+                                                        <rect key="frame" x="184.5" y="12.5" width="45" height="41"/>
                                                         <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="24"/>
                                                         <state key="normal" title="BUY">
                                                             <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1171,8 +1265,7 @@
         <segue reference="yjD-TH-VnT"/>
         <segue reference="xC5-85-3W2"/>
         <segue reference="zUV-MK-NDI"/>
-        <segue reference="RQy-MV-BT6"/>
-        <segue reference="2ig-UW-Gr1"/>
+        <segue reference="Akf-cA-bry"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Account Tab" width="48" height="44"/>
