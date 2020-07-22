@@ -66,7 +66,7 @@ class HomePageViewController: UIViewController {
         if collectionViewFlowLayout == nil
         {
             let numberOfItemsPerRow : CGFloat = 2
-            let lineSpacing : CGFloat = 5
+            let lineSpacing : CGFloat = 15
             let interItemSpacing : CGFloat = 5
             var edgeSpacing : CGFloat = 5
             let screenBounds = UIScreen.main.bounds
