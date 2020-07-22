@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseFirestore
+import FirebaseAuth
 
 struct Product {
     var collectionViewName : String
@@ -77,8 +78,66 @@ class ShoppingBagViewController: UIViewController {
         }
         
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "buyToComplete" {
+            
+            let vc = segue.destination as! CompleteOrderViewController
+            vc.orders = self.products
+        }
+    }
     @IBAction func buyButtonPressed(_ sender: Any) {
-        performSegue(withIdentifier: "buyToComplete", sender: self)
+        buyItems()
+    }
+    func buyItems() {
+        
+        let userDefault = UserDefaults.standard
+        let checker = userDefault.bool(forKey: "isSignedIn")
+        let addedProducts = userDefault.array(forKey: "addedProducts")
+        print(checker)
+        if checker == true {
+            print("is sign in triggered")
+            
+            let email = userDefault.string(forKey: "email")
+
+            Firestore.firestore().collection("purchases").document("1").setData([
+                "address": "Merhaba bu app'den gelecek adres şu an ise bu placeholder sadece",
+                "user": email!,
+                "order": addedProducts!
+            ]) {
+                err in
+                if let err = err {
+                    print("error writing document: \(err)")
+                }
+                else {
+                    print("Document successfully written")
+                    
+                }
+            }
+            
+
+            
+            
+            performSegue(withIdentifier: "buyToComplete", sender: self)
+            
+        }
+        else {
+            
+            // show alert
+            
+            let alert = UIAlertController(title: "Hi", message: "It looks like you did not signed in to your account. Please do it in order to make your purchase, or create a new account if you don't have one.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Register", style: .default, handler: {
+                _ in
+                
+                self.performSegue(withIdentifier: "bagToRegister", sender: self)
+            }))
+            alert.addAction(UIAlertAction(title: "Login", style: .default, handler: {
+                _ in
+                
+                self.performSegue(withIdentifier: "bagToLogin", sender: self)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
     }
     func btnDesign()
     {

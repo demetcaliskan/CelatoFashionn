@@ -37,10 +37,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     }
     func goToHome() {
+        
+        let isSignedIn = true
+        let userDefault = UserDefaults.standard
+        userDefault.set(isSignedIn, forKey: "isSignedIn")
+        let email = emailTextField.text
+        userDefault.set(email, forKey: "email")
+        
         let alert = UIAlertController(title: "Success", message: "Welcome back!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
-            print("Error happenned in login controllers alert")
-            self.performSegue(withIdentifier: "loginToHome", sender: self)
+           
+            self.performSegue(withIdentifier: "loginToBag", sender: self)
         }))
         self.present(alert, animated: true, completion: nil)
     }

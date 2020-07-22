@@ -184,11 +184,12 @@
                         <outlet property="emailTextField" destination="QTt-pA-cga" id="M3R-gz-D83"/>
                         <outlet property="passwordAgainTextField" destination="Snf-nP-gYs" id="lZ1-ws-OPi"/>
                         <outlet property="passwordTextField" destination="oEB-Dx-6ta" id="AIE-Jg-9Fb"/>
+                        <segue destination="5pv-uL-4Ob" kind="show" identifier="registerToBag" id="yjD-TH-VnT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ntm-Wi-Xni" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1233.3333333333335" y="30.163043478260871"/>
+            <point key="canvasLocation" x="1174" y="-1252"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -335,12 +336,12 @@
                     <connections>
                         <outlet property="emailTextField" destination="xI8-KC-bQA" id="uiO-IJ-qtU"/>
                         <outlet property="passwordTextField" destination="koW-ZB-OyR" id="zBX-jp-QQv"/>
-                        <segue destination="zk7-Ct-LYo" kind="show" identifier="loginToHome" id="ziq-6j-Gdg"/>
+                        <segue destination="5pv-uL-4Ob" kind="show" identifier="loginToBag" id="LBn-cH-t9B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-439" y="28"/>
+            <point key="canvasLocation" x="-2028" y="-777"/>
         </scene>
         <!--Home Page View Controller-->
         <scene sceneID="SWV-Kz-XIR">
@@ -448,7 +449,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U56-2L-hpd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="467" y="31"/>
+            <point key="canvasLocation" x="-439" y="-777"/>
         </scene>
         <!--Show Product View Controller-->
         <scene sceneID="ctV-lA-Fam">
@@ -710,7 +711,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Taa-6J-Of8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-439" y="744"/>
+            <point key="canvasLocation" x="-565" y="983"/>
         </scene>
         <!--Category Products View Controller-->
         <scene sceneID="iOE-h9-OqH">
@@ -972,6 +973,8 @@
                         <outlet property="buyBtn" destination="NiU-Wu-IZ8" id="Ncj-1u-yie"/>
                         <outlet property="collectionView" destination="MKU-WH-azI" id="gHP-p4-0aI"/>
                         <outlet property="totalLabel" destination="5eh-9p-ANZ" id="mUM-D7-2gf"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="bagToLogin" id="K7o-eR-EFv"/>
+                        <segue destination="Ugn-br-6Tu" kind="show" identifier="bagToRegister" id="2ig-UW-Gr1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejZ-LO-AYO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1164,11 +1167,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="RQy-MV-BT6"/>
         <segue reference="Fep-Lz-k9P"/>
-        <segue reference="aYh-Uh-Wkt"/>
-        <segue reference="bZz-wa-Fwx"/>
-        <segue reference="fzI-HX-zOn"/>
+        <segue reference="yjD-TH-VnT"/>
+        <segue reference="xC5-85-3W2"/>
+        <segue reference="zUV-MK-NDI"/>
+        <segue reference="RQy-MV-BT6"/>
+        <segue reference="2ig-UW-Gr1"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Account Tab" width="48" height="44"/>

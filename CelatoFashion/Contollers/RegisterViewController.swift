@@ -46,6 +46,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordAgainTextField.text!) { (AuthDataResult, Error) in
                 print(Error as Any)
                 }
+            let isSignedIn = true
+            let userDefault = UserDefaults.standard
+            let email = emailTextField.text
+            userDefault.set(email, forKey: "email")
+            userDefault.set(isSignedIn, forKey: "isSignedIn")
+            performSegue(withIdentifier: "registerToBag", sender: self)
             }
     }
     @IBAction func loginPressed(_ sender: Any) {

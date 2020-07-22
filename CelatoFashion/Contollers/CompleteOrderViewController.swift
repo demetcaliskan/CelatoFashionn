@@ -23,11 +23,13 @@ class CompleteOrderViewController: UIViewController {
     let cellIdentifier = "OrderItemCollectionViewCell"
     var collectionViewFlowLayout : UICollectionViewFlowLayout!
     
+    var orders = [NotProduct]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         btnDesign()
         setupCollectionView()
+        
     }
     
     private func setupCollectionView()
@@ -47,6 +49,12 @@ class CompleteOrderViewController: UIViewController {
         continueShopButton.contentEdgeInsets = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
     }
     @IBAction func continueShoppingPressed(_ sender: Any) {
+        
+        let userDefault = UserDefaults.standard
+        
+        let emptyProductId : [String] = []
+        userDefault.set(emptyProductId, forKey: "addedProducts")
+        
         performSegue(withIdentifier: "completeToHome", sender: self)
     }
     
@@ -92,17 +100,18 @@ class CompleteOrderViewController: UIViewController {
 extension CompleteOrderViewController: UICollectionViewDelegate, UICollectionViewDataSource
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imgArray.count
+        return orders.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let productSize = "L"
-        let productPrice = "500"
+        let productSize = orders[indexPath.item].getSize()
+        let productPrice = orders[indexPath.item].getPrice()
+        
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! OrderItemCollectionViewCell
         cell.productImage.image = imgArray[indexPath.row]
-        cell.productName.text = "Demet"
+        cell.productName.text = orders[indexPath.item].getName()
         cell.productSizePrice.text = productSize + "  " + productPrice
 
         return cell

@@ -170,31 +170,13 @@
 		80E59C4C248446B90023CA2D /* CelatoFashion */ = {
 			isa = PBXGroup;
 			children = (
+				B0C5261A24C883C4004EBCBD /* Contollers */,
+				B0C5261924C88331004EBCBD /* Cells */,
 				80E59C4D248446B90023CA2D /* AppDelegate.swift */,
 				80E59C4F248446B90023CA2D /* SceneDelegate.swift */,
 				80E59C53248446B90023CA2D /* Main.storyboard */,
-				80E59C51248446B90023CA2D /* ViewController.swift */,
-				6EFB214224C65AF10079D2FF /* CompleteOrderViewController.swift */,
-				80CF6303249177A500FDF57E /* RegisterViewController.swift */,
-				805B0CA3248C2E760071AD5B /* HomePageViewController.swift */,
-				6E6908CA24C1D8DB00ED391C /* CategoryProductsViewController.swift */,
-				8061F9A0248DC60500E5705B /* ShowProductViewController.swift */,
-				80CF6307249177F700FDF57E /* SearchViewController.swift */,
-				80CF63092491782100FDF57E /* CategoryViewController.swift */,
-				8061F99A248D8C5D00E5705B /* ShoppingBagViewController.swift */,
-				6EFB214424C666CD0079D2FF /* OrderItemCollectionViewCell.swift */,
-				6EFB214524C666CD0079D2FF /* OrderItemCollectionViewCell.xib */,
-				8061F99C248D8D5C00E5705B /* BagItemCollectionViewCell.swift */,
-				8061F99D248D8D5C00E5705B /* BagItemCollectionViewCell.xib */,
-				805B0CA9248C56C40071AD5B /* ItemCollectionViewCell.swift */,
 				B0D6469F24C71DB800E47E73 /* GoogleService-Info.plist */,
 				805B0CAA248C56C40071AD5B /* ItemCollectionViewCell.xib */,
-				6EC3E1DE24B4E7FB00D8D355 /* SellCategoryTableViewCell.swift */,
-				6EC3E1DF24B4E7FB00D8D355 /* SellCategoryTableViewCell.xib */,
-				6E3F638524B5063400C061B9 /* CategoryTableViewCell.swift */,
-				6E3F638624B5063400C061B9 /* CategoryTableViewCell.xib */,
-				6E3107FB24B939150014F298 /* ShowProductCollectionViewCell.swift */,
-				6E3107FC24B939150014F298 /* ShowProductCollectionViewCell.xib */,
 				80E59C56248446BC0023CA2D /* Assets.xcassets */,
 				80E59C5B248446BC0023CA2D /* Info.plist */,
 				80E59C58248446BC0023CA2D /* LaunchScreen.storyboard */,
@@ -219,6 +201,40 @@
 				80E59C71248446BC0023CA2D /* Info.plist */,
 			);
 			path = CelatoFashionUITests;
+			sourceTree = "<group>";
+		};
+		B0C5261924C88331004EBCBD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				6EFB214524C666CD0079D2FF /* OrderItemCollectionViewCell.xib */,
+				8061F99D248D8D5C00E5705B /* BagItemCollectionViewCell.xib */,
+				6EFB214424C666CD0079D2FF /* OrderItemCollectionViewCell.swift */,
+				8061F99C248D8D5C00E5705B /* BagItemCollectionViewCell.swift */,
+				805B0CA9248C56C40071AD5B /* ItemCollectionViewCell.swift */,
+				6EC3E1DE24B4E7FB00D8D355 /* SellCategoryTableViewCell.swift */,
+				6EC3E1DF24B4E7FB00D8D355 /* SellCategoryTableViewCell.xib */,
+				6E3F638524B5063400C061B9 /* CategoryTableViewCell.swift */,
+				6E3F638624B5063400C061B9 /* CategoryTableViewCell.xib */,
+				6E3107FB24B939150014F298 /* ShowProductCollectionViewCell.swift */,
+				6E3107FC24B939150014F298 /* ShowProductCollectionViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B0C5261A24C883C4004EBCBD /* Contollers */ = {
+			isa = PBXGroup;
+			children = (
+				80E59C51248446B90023CA2D /* ViewController.swift */,
+				6EFB214224C65AF10079D2FF /* CompleteOrderViewController.swift */,
+				80CF6303249177A500FDF57E /* RegisterViewController.swift */,
+				805B0CA3248C2E760071AD5B /* HomePageViewController.swift */,
+				6E6908CA24C1D8DB00ED391C /* CategoryProductsViewController.swift */,
+				8061F9A0248DC60500E5705B /* ShowProductViewController.swift */,
+				80CF6307249177F700FDF57E /* SearchViewController.swift */,
+				80CF63092491782100FDF57E /* CategoryViewController.swift */,
+				8061F99A248D8C5D00E5705B /* ShoppingBagViewController.swift */,
+			);
+			path = Contollers;
 			sourceTree = "<group>";
 		};
 		E81ACD2A521167671F0A8FE3 /* Pods */ = {
