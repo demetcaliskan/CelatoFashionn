@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class RegisterViewController: UIViewController, UITextFieldDelegate {
     
@@ -107,6 +108,25 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordAgainTextField.text!) { (AuthDataResult, Error) in
                 print(Error as Any)
                 }
+            Firestore.firestore().collection("users").document(emailTextField.text!).setData([
+                "Full name": nameSurnameTextField.text!,
+                "Phone Number": phoneNumberTextField.text!,
+                "District": districtTextField.text!,
+                "City": cityTextField.text!,
+                "Country": countryTextField.text!,
+                "Postal Code": postCodeTextField.text!,
+                "Address": addressTextView.text!
+            ]) {
+                err in
+                
+                if let err = err{
+                    print("error writing document: \(err)")
+                }
+                else {
+                    print("Document written successfully")
+                    self.performSegue(withIdentifier: "registerToBag", sender: self)
+                }
+            }
             }
     }
     
@@ -139,7 +159,6 @@ extension RegisterViewController: UITextViewDelegate
         //currentText variable contains the current data which user has currently typed in
         //in another words currentText variable is the address of the user
         currentText = addressTextView.text
-        print(currentText)
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
