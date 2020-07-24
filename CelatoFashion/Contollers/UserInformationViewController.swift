@@ -38,6 +38,10 @@ class UserInformationViewController: UIViewController, UITextFieldDelegate {
         saveMyInfoSwitch.addTarget(self, action: #selector(saveInformation), for: .valueChanged)
     }
     
+    @IBAction func doneButtonPressed(_ sender: Any) {
+    }
+    
+    
     @objc func saveInformation(saveSwitch: UISwitch)
     {
         if saveSwitch.isOn
