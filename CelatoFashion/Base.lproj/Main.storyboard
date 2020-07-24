@@ -102,7 +102,7 @@
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <fontDescription key="fontDescription" name="SFProDisplay-Thin" family="SF Pro Display" pointSize="24"/>
-                                                                                <textInputTraits key="textInputTraits"/>
+                                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
                                                                             </textField>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WQV-eI-Bal">
                                                                                 <rect key="frame" x="0.0" y="45" width="242" height="35.5"/>
@@ -116,7 +116,7 @@
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <fontDescription key="fontDescription" name="SFProDisplay-Thin" family="SF Pro Display" pointSize="24"/>
-                                                                                <textInputTraits key="textInputTraits"/>
+                                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
                                                                             </textField>
                                                                         </subviews>
                                                                     </stackView>
@@ -128,21 +128,21 @@
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <fontDescription key="fontDescription" name="SFProDisplay-Thin" family="SF Pro Display" pointSize="24"/>
-                                                                                <textInputTraits key="textInputTraits" textContentType="address-level2"/>
+                                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
                                                                             </textField>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pRh-8B-PUd">
                                                                                 <rect key="frame" x="0.0" y="45" width="242" height="35.5"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <fontDescription key="fontDescription" name="SFProDisplay-Thin" family="SF Pro Display" pointSize="24"/>
-                                                                                <textInputTraits key="textInputTraits" textContentType="country-name"/>
+                                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="country-name"/>
                                                                             </textField>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Postal Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WLb-RU-3Jj">
                                                                                 <rect key="frame" x="0.0" y="90.5" width="242" height="35.5"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <fontDescription key="fontDescription" name="SFProDisplay-Thin" family="SF Pro Display" pointSize="24"/>
-                                                                                <textInputTraits key="textInputTraits" textContentType="postal-code"/>
+                                                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                                             </textField>
                                                                         </subviews>
                                                                     </stackView>
@@ -278,6 +278,7 @@
                         <outlet property="phoneNumberTextField" destination="WQV-eI-Bal" id="uVc-E2-EcT"/>
                         <outlet property="postCodeTextField" destination="WLb-RU-3Jj" id="bys-eh-CIW"/>
                         <segue destination="5pv-uL-4Ob" kind="show" identifier="registerToBag" id="yjD-TH-VnT"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="registerToLogin" id="fay-fg-WaJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ntm-Wi-Xni" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -371,14 +372,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1wH-4q-86B"/>
                     </view>
+                    <navigationItem key="navigationItem" id="oaN-EJ-ifY"/>
                     <connections>
                         <outlet property="deliveryPaymentButton" destination="cHG-QS-pnZ" id="OKO-wA-udP"/>
                         <outlet property="transferButton" destination="I6f-9R-NJ9" id="hMS-Ka-IYS"/>
+                        <segue destination="B8M-MI-n0V" kind="show" identifier="paymentToComplete" id="WOB-b1-vqQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UgG-4q-hFh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2162" y="-1252"/>
+            <point key="canvasLocation" x="-1697" y="982"/>
         </scene>
         <!--User Information View Controller-->
         <scene sceneID="N2j-CB-Zfn">
@@ -395,7 +398,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="272.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0t-zR-1l9">
-                                                <rect key="frame" x="67" y="73.5" width="280.5" height="125.5"/>
+                                                <rect key="frame" x="46.5" y="75" width="321" height="122.5"/>
                                                 <string key="text">Enter your 
 phone number and 
 address information.</string>
@@ -429,35 +432,35 @@ address information.</string>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <fontDescription key="fontDescription" name="SFProDisplay-Thin" family="SF Pro Display" pointSize="24"/>
-                                                                                <textInputTraits key="textInputTraits" textContentType="tel"/>
+                                                                                <textInputTraits key="textInputTraits"/>
                                                                             </textField>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="District" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xr0-vg-vuq">
                                                                                 <rect key="frame" x="0.0" y="46" width="242" height="36"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <fontDescription key="fontDescription" name="SFProDisplay-Thin" family="SF Pro Display" pointSize="24"/>
-                                                                                <textInputTraits key="textInputTraits"/>
+                                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
                                                                             </textField>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jC4-qM-7fG">
                                                                                 <rect key="frame" x="0.0" y="92" width="242" height="36"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <fontDescription key="fontDescription" name="SFProDisplay-Thin" family="SF Pro Display" pointSize="24"/>
-                                                                                <textInputTraits key="textInputTraits" textContentType="address-level2"/>
+                                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
                                                                             </textField>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="laP-Kg-jP2">
                                                                                 <rect key="frame" x="0.0" y="138" width="242" height="36"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <fontDescription key="fontDescription" name="SFProDisplay-Thin" family="SF Pro Display" pointSize="24"/>
-                                                                                <textInputTraits key="textInputTraits" textContentType="country-name"/>
+                                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="country-name"/>
                                                                             </textField>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Postal Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NWF-rX-wGC">
                                                                                 <rect key="frame" x="0.0" y="184" width="242" height="36"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <fontDescription key="fontDescription" name="SFProDisplay-Thin" family="SF Pro Display" pointSize="24"/>
-                                                                                <textInputTraits key="textInputTraits" textContentType="postal-code"/>
+                                                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                                             </textField>
                                                                         </subviews>
                                                                     </stackView>
@@ -514,16 +517,16 @@ address information.</string>
                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save my information." textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gC1-zC-O17">
-                                                                <rect key="frame" x="0.0" y="0.0" width="217.5" height="50"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="227" height="50"/>
                                                                 <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="24"/>
                                                                 <color key="textColor" red="0.33333333329999998" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kbK-9h-FAI">
-                                                                <rect key="frame" x="217.5" y="0.0" width="62.5" height="50"/>
+                                                                <rect key="frame" x="227" y="0.0" width="53" height="50"/>
                                                                 <subviews>
                                                                     <switch opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="1mE-bP-yVW">
-                                                                        <rect key="frame" x="7" y="9.5" width="51" height="31"/>
+                                                                        <rect key="frame" x="2" y="9.5" width="51" height="31"/>
                                                                         <color key="onTintColor" red="0.65098039215686276" green="0.48627450980392156" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </switch>
                                                                 </subviews>
@@ -568,6 +571,7 @@ address information.</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="czB-dE-SK8"/>
                     </view>
+                    <navigationItem key="navigationItem" id="RjX-RA-Htg"/>
                     <connections>
                         <outlet property="addressTextView" destination="w9g-fL-iQb" id="ehP-JM-7Gz"/>
                         <outlet property="cityTextField" destination="jC4-qM-7fG" id="Z7Y-hP-DtN"/>
@@ -577,11 +581,12 @@ address information.</string>
                         <outlet property="phoneNumberTextField" destination="8JI-7S-pb8" id="5Dd-zA-p42"/>
                         <outlet property="postCodeTextField" destination="NWF-rX-wGC" id="72M-3t-co4"/>
                         <outlet property="saveMyInfoSwitch" destination="1mE-bP-yVW" id="90F-CW-4GV"/>
+                        <segue destination="5pv-uL-4Ob" kind="show" identifier="userInfoToBag" id="f7v-us-3Po"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8QV-ZM-FHr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3004.347826086957" y="-1252.2321428571429"/>
+            <point key="canvasLocation" x="-1697" y="135"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -729,6 +734,7 @@ address information.</string>
                         <outlet property="emailTextField" destination="xI8-KC-bQA" id="uiO-IJ-qtU"/>
                         <outlet property="passwordTextField" destination="koW-ZB-OyR" id="zBX-jp-QQv"/>
                         <segue destination="5pv-uL-4Ob" kind="show" identifier="loginToBag" id="LBn-cH-t9B"/>
+                        <segue destination="21O-Pr-feE" kind="show" identifier="loginToUserInfo" id="ojX-3E-xhM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -809,7 +815,6 @@ address information.</string>
                                             <tabBarItem title="" image="Home tab" id="rEL-Vj-79T"/>
                                             <tabBarItem tag="1" title="" image="Search Tab" id="63A-Xo-TJg"/>
                                             <tabBarItem tag="2" title="" image="Category Tab" id="Czq-bU-ZrK"/>
-                                            <tabBarItem tag="3" title="" image="Account Tab" id="NHc-JX-Qa0"/>
                                         </items>
                                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tabBar>
@@ -1189,7 +1194,6 @@ address information.</string>
                                             <tabBarItem title="" image="Home tab" id="ONn-VN-qSh"/>
                                             <tabBarItem tag="1" title="" image="Search Tab" id="8mH-Za-UpK"/>
                                             <tabBarItem tag="2" title="" image="Category Tab" id="6cQ-5x-MLg"/>
-                                            <tabBarItem tag="3" title="" image="Account Tab" id="90N-g0-xeO"/>
                                         </items>
                                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tabBar>
@@ -1315,14 +1319,13 @@ address information.</string>
                                                 <rect key="frame" x="0.0" y="66" width="414" height="66"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiU-Wu-IZ8">
-                                                        <rect key="frame" x="182" y="13" width="50" height="40"/>
+                                                        <rect key="frame" x="184.5" y="12.5" width="45" height="41"/>
                                                         <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="24"/>
                                                         <state key="normal" title="BUY">
                                                             <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="buyButtonPressed:" destination="5pv-uL-4Ob" eventType="touchUpInside" id="FJo-og-sHq"/>
-                                                            <segue destination="B8M-MI-n0V" kind="show" identifier="buyToComplete" id="Zf3-9b-pm6"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1367,6 +1370,7 @@ address information.</string>
                         <outlet property="totalLabel" destination="5eh-9p-ANZ" id="mUM-D7-2gf"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="bagToLogin" id="K7o-eR-EFv"/>
                         <segue destination="Ugn-br-6Tu" kind="show" identifier="bagToRegister" id="2ig-UW-Gr1"/>
+                        <segue destination="zg5-u0-ZkI" kind="show" identifier="bagToPayment" id="gS4-di-Zbi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejZ-LO-AYO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1429,7 +1433,6 @@ address information.</string>
                                             <tabBarItem title="" image="Home tab" id="CkG-az-NSk"/>
                                             <tabBarItem tag="1" title="" image="Search Tab" id="Noh-gy-x0H"/>
                                             <tabBarItem tag="2" title="" image="Category Tab" id="u9f-nh-LU0"/>
-                                            <tabBarItem tag="3" title="" image="Account Tab" id="8Cg-lt-mCU"/>
                                         </items>
                                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tabBar>
@@ -1528,7 +1531,6 @@ address information.</string>
                                             <tabBarItem title="" image="Home tab" id="orC-ki-Ed6"/>
                                             <tabBarItem tag="1" title="" image="Search Tab" id="H5x-oI-2Vh"/>
                                             <tabBarItem tag="2" title="" image="Category Tab" id="5OO-lP-db2"/>
-                                            <tabBarItem tag="3" title="" image="Account Tab" id="SAM-bM-qYR"/>
                                         </items>
                                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tabBar>
@@ -1559,14 +1561,14 @@ address information.</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Fep-Lz-k9P"/>
-        <segue reference="yjD-TH-VnT"/>
-        <segue reference="xC5-85-3W2"/>
+        <segue reference="Xyy-IZ-iAo"/>
+        <segue reference="f7v-us-3Po"/>
+        <segue reference="LPt-3G-Tqn"/>
         <segue reference="zUV-MK-NDI"/>
+        <segue reference="K7o-eR-EFv"/>
         <segue reference="2ig-UW-Gr1"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="Account Tab" width="48" height="44"/>
         <image name="Category Tab" width="48" height="45"/>
         <image name="Home tab" width="94" height="49"/>
         <image name="Left Accessory" width="18" height="29"/>

@@ -250,13 +250,6 @@ extension SearchViewController: UITabBarDelegate
             self.present(nextViewController, animated:true, completion:nil)
             print("category bar item is selected")
         }
-        if item.tag == 3
-        {
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-            self.present(nextViewController, animated:true, completion:nil)
-            print("account bar item is selected")
-        }
     }
 }
 

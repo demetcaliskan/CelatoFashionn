@@ -80,15 +80,29 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         alertController.addAction(UIAlertAction(title: "Yes.", style: .default, handler: {
             (ACTION) in alertController.dismiss(animated: true, completion: nil)
             print("Yes.")
+            self.performSegue(withIdentifier: "registerToBag", sender: self)
         }))
         
         alertController.addAction(UIAlertAction(title: "No.", style: .default, handler: {
             (ACTION) in alertController.dismiss(animated: true, completion: nil)
             print("No")
+            self.performSegue(withIdentifier: "registerToBag", sender: self)
         }))
 
         self.present(alertController, animated: true, completion: nil)
 
+    }
+    
+    func isEmpty() -> Bool
+    {
+        if nameSurnameTextField.text == "" || phoneNumberTextField.text == "" || districtTextField.text == "" || cityTextField.text == "" || countryTextField.text == "" || postCodeTextField.text == "" || currentText == ""
+        {
+            return true
+        }
+        else
+        {
+            return false
+        }
     }
     
     @IBAction func registerPressed(_ sender: Any) {
@@ -103,8 +117,15 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             self.present(alert, animated: true, completion: nil)
             return
             }
+        else if isEmpty()
+        {
+            let alert = UIAlertController(title: "Error" , message: "Fill the empty fields.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            }))
+            self.present(alert, animated: true, completion: nil)
+            
+        }
         else {
-            canAddressBeSaved()
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordAgainTextField.text!) { (AuthDataResult, Error) in
                 print(Error as Any)
                 }
@@ -124,7 +145,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 }
                 else {
                     print("Document written successfully")
-                    self.performSegue(withIdentifier: "registerToBag", sender: self)
+                    self.canAddressBeSaved()
                 }
             }
             }

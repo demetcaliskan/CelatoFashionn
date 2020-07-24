@@ -26,7 +26,10 @@ class HomePageViewController: UIViewController {
                          Item(collectionViewName: "Product 2"),
                          Item(collectionViewName: "Product 3"),
                          Item(collectionViewName: "Product 4"),
+                         Item(collectionViewName: "Product 2"),
                          Item(collectionViewName: "Product 1"),
+                         Item(collectionViewName: "Product 4"),
+                         Item(collectionViewName: "Product 3"),
                          Item(collectionViewName: "Product 1")]
     
    
@@ -165,13 +168,6 @@ extension HomePageViewController: UITabBarDelegate
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "CategoryViewController") as! CategoryViewController
             self.present(nextViewController, animated:true, completion:nil)
             print("category bar item is selected")
-        }
-        if item.tag == 3
-        {
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-            self.present(nextViewController, animated:true, completion:nil)
-            print("account bar item is selected")
         }
     }
 }

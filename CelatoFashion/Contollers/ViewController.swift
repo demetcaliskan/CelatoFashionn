@@ -43,13 +43,29 @@ class ViewController: UIViewController, UITextFieldDelegate {
         userDefault.set(isSignedIn, forKey: "isSignedIn")
         let email = emailTextField.text
         userDefault.set(email, forKey: "email")
+        let addresInfoRegistered = false
         
-        let alert = UIAlertController(title: "Success", message: "Welcome back!", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
-           
-            self.performSegue(withIdentifier: "loginToBag", sender: self)
-        }))
-        self.present(alert, animated: true, completion: nil)
+        //if address information is registered
+        if addresInfoRegistered
+        {
+            let alert = UIAlertController(title: "Success", message: "Welcome back!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+                
+                self.performSegue(withIdentifier: "loginToBag", sender: self)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+        //if address information is not registered
+        else
+        {
+            let alert = UIAlertController(title: "Error", message: "You have no registered contact information, please enter.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+                
+                self.performSegue(withIdentifier: "loginToUserInfo", sender: self)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         emailTextField.resignFirstResponder()

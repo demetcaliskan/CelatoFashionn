@@ -27,6 +27,7 @@ class UserInformationViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         self.phoneNumberTextField.delegate = self
         self.districtTextField.delegate = self
         self.cityTextField.delegate = self
@@ -38,7 +39,19 @@ class UserInformationViewController: UIViewController, UITextFieldDelegate {
         saveMyInfoSwitch.addTarget(self, action: #selector(saveInformation), for: .valueChanged)
     }
     
-    @IBAction func doneButtonPressed(_ sender: Any) {
+    @IBAction func doneButtonPressed(_ sender: Any)
+    {
+        if isEmpty()
+        {
+            let alert = UIAlertController(title: "Error" , message: "Fill the empty fields.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+        else
+        {
+            performSegue(withIdentifier: "userInfoToBag", sender: self)
+        }
     }
     
     
@@ -51,6 +64,18 @@ class UserInformationViewController: UIViewController, UITextFieldDelegate {
         else
         {
             print("Switch is off! You can not save user's information.")
+        }
+    }
+    
+    func isEmpty() -> Bool
+    {
+        if phoneNumberTextField.text == "" || districtTextField.text == "" || cityTextField.text == "" || countryTextField.text == "" || postCodeTextField.text == "" || currentText == ""
+        {
+            return true
+        }
+        else
+        {
+            return false
         }
     }
     

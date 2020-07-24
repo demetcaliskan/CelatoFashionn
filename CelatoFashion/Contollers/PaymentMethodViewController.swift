@@ -28,17 +28,19 @@ class PaymentMethodViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Copy.", style: .default, handler: {
             _ in
             UIPasteboard.general.string = self.iban
-            
+            self.performSegue(withIdentifier: "paymentToComplete", sender: self)
         }))
 
         self.present(alert, animated: true, completion: nil)
         
         userPaymentMethod = "Money transfer."
+        
     }
     
     @IBAction func deliveryPaymentButtonPressed(_ sender: UIButton)
     {
         userPaymentMethod = "Payment when delivered."
+        performSegue(withIdentifier: "paymentToComplete", sender: self)
     }
     
     

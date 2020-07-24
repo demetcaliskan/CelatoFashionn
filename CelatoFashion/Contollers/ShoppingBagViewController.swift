@@ -94,7 +94,7 @@ class ShoppingBagViewController: UIViewController {
         let checker = userDefault.bool(forKey: "isSignedIn")
         let addedProducts = userDefault.array(forKey: "addedProducts")
         print(checker)
-        if checker == true {
+        if checker == true && addedProducts?.count != 0{
             print("is sign in triggered")
             
             let email = userDefault.string(forKey: "email")
@@ -114,11 +114,17 @@ class ShoppingBagViewController: UIViewController {
                 }
             }
             
-
+            performSegue(withIdentifier: "bagToPayment", sender: self)
             
-            
-            performSegue(withIdentifier: "buyToComplete", sender: self)
-            
+        }
+        else if addedProducts?.count == 0
+        {
+            let alert = UIAlertController(title: "Error", message: "Your bag is empty.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Continue Shopping", style: .default, handler: {
+                _ in
+                self.performSegue(withIdentifier: "bagToHome", sender: self)
+            }))
+            self.present(alert, animated: true, completion: nil)
         }
         else {
             
