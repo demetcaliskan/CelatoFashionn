@@ -756,16 +756,16 @@ address information.</string>
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="      CELATO FASHION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7iJ-oQ-AC5">
-                                                <rect key="frame" x="0.0" y="0.0" width="383.5" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="381" height="50"/>
                                                 <fontDescription key="fontDescription" name="SFProDisplay-Black" family="SF Pro Display" pointSize="24"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqs-ch-cTv">
-                                                <rect key="frame" x="383.5" y="0.0" width="30.5" height="50"/>
+                                                <rect key="frame" x="381" y="0.0" width="33" height="50"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" image="bag" catalog="system"/>
+                                                <state key="normal" image="bag1x"/>
                                                 <connections>
                                                     <action selector="goToBag:" destination="zk7-Ct-LYo" eventType="touchUpInside" id="df8-f1-9vl"/>
                                                     <segue destination="5pv-uL-4Ob" kind="show" identifier="homeToBag" id="Su8-dq-2RF"/>
@@ -1146,8 +1146,7 @@ address information.</string>
                                                         <segue destination="R6i-PK-ApV" kind="show" identifier="categoryListToShow" id="Fep-Lz-k9P"/>
                                                     </connections>
                                                 </barButtonItem>
-                                                <barButtonItem key="rightBarButtonItem" title="Item" image="bag" catalog="system" id="C8h-O8-fSE">
-                                                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <barButtonItem key="rightBarButtonItem" title="Item" image="bag1x" id="C8h-O8-fSE">
                                                     <connections>
                                                         <action selector="showToHomePressed:" destination="mzy-gf-C5g" id="0W6-9Q-3dx"/>
                                                     </connections>
@@ -1563,7 +1562,7 @@ address information.</string>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Fep-Lz-k9P"/>
-        <segue reference="yjD-TH-VnT"/>
+        <segue reference="Su8-dq-2RF"/>
         <segue reference="2Gu-mr-q0k"/>
         <segue reference="bZz-wa-Fwx"/>
         <segue reference="zUV-MK-NDI"/>
@@ -1575,7 +1574,7 @@ address information.</string>
         <image name="Home tab" width="94" height="49"/>
         <image name="Left Accessory" width="18" height="29"/>
         <image name="Search Tab" width="94" height="49"/>
-        <image name="bag" catalog="system" width="128" height="128"/>
+        <image name="bag1x" width="21" height="25"/>
         <image name="logo" width="244" height="294"/>
         <image name="logo-1" width="204" height="204"/>
         <image name="logo2" width="69.5" height="69.5"/>
