@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseFirestore
+import FirebaseStorage
 
 class CategoryProductsViewController: UIViewController {
     
@@ -71,6 +72,8 @@ class CategoryProductsViewController: UIViewController {
                     let category = data["category"] as! String
                     if(category == self.selectedCategory || category == self.selectedCategory.lowercased()) {
                         
+                        let id = data["id"] as! String
+                        
                         let product = NotProduct(
                             name: data["name"] as! String,
                             amount: data["amount"] as! String,
@@ -82,10 +85,15 @@ class CategoryProductsViewController: UIViewController {
                             gender: data["gender"] as! String)
                     
                         print(document.data())
-                    
-                        self.products.append(product)
+                        let storageRef = Storage.storage().reference()
+                        storageRef.child(id).getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+                            
+                            let image = UIImage(data: data!)
+                            product.setImage(image: image!)
+                            self.products.append(product)
+                            self.collectionView.reloadData()
                         }
-                    self.collectionView.reloadData()
+                    }
                 }
             }
         }
@@ -180,7 +188,7 @@ extension CategoryProductsViewController: UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ItemCollectionViewCell
         
-        cell.itemImage.image = UIImage(named: items[indexPath.item].collectionViewName)
+        cell.itemImage.image = products[indexPath.item].getImage()
         cell.itemName.text = products[indexPath.item].getName()
         cell.itemPrice.text = products[indexPath.item].getPrice()
         

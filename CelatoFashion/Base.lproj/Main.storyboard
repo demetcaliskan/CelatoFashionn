@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zk7-Ct-LYo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zk7-Ct-LYo">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -306,7 +306,7 @@
                                                 <rect key="frame" x="0.0" y="199.5" width="414" height="199.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your payment method." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1v-9q-tqt">
-                                                        <rect key="frame" x="66" y="58" width="282" height="84"/>
+                                                        <rect key="frame" x="66" y="59" width="282" height="82"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="282" id="lae-tE-dxX"/>
                                                         </constraints>
@@ -959,7 +959,7 @@ address information.</string>
                                         <rect key="frame" x="0.0" y="758" width="414" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mvl-np-Zbo">
-                                                <rect key="frame" x="138.5" y="4.5" width="137" height="41"/>
+                                                <rect key="frame" x="134.5" y="5" width="145" height="40"/>
                                                 <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="24"/>
                                                 <state key="normal" title="ADD TO BAG">
                                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1030,7 +1030,7 @@ address information.</string>
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="161"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order is successful." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTn-7u-GXa">
-                                                        <rect key="frame" x="58.5" y="59.5" width="297" height="42"/>
+                                                        <rect key="frame" x="52.5" y="60" width="309.5" height="41"/>
                                                         <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="35"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </label>
@@ -1067,7 +1067,7 @@ address information.</string>
                                                 <rect key="frame" x="0.0" y="202" width="414" height="202"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0K-JQ-gPw">
-                                                        <rect key="frame" x="49" y="74" width="316" height="54"/>
+                                                        <rect key="frame" x="51" y="74.5" width="312" height="53"/>
                                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="35"/>
                                                         <state key="normal" title="Continue Shopping.">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1108,7 +1108,7 @@ address information.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Taa-6J-Of8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-565" y="983"/>
+            <point key="canvasLocation" x="-439" y="882"/>
         </scene>
         <!--Category Products View Controller-->
         <scene sceneID="iOE-h9-OqH">
@@ -1319,7 +1319,7 @@ address information.</string>
                                                 <rect key="frame" x="0.0" y="66" width="414" height="66"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiU-Wu-IZ8">
-                                                        <rect key="frame" x="184.5" y="12.5" width="45" height="41"/>
+                                                        <rect key="frame" x="182" y="13" width="50" height="40"/>
                                                         <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="24"/>
                                                         <state key="normal" title="BUY">
                                                             <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1371,11 +1371,12 @@ address information.</string>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="bagToLogin" id="K7o-eR-EFv"/>
                         <segue destination="Ugn-br-6Tu" kind="show" identifier="bagToRegister" id="2ig-UW-Gr1"/>
                         <segue destination="zg5-u0-ZkI" kind="show" identifier="bagToPayment" id="gS4-di-Zbi"/>
+                        <segue destination="B8M-MI-n0V" kind="show" identifier="buyToComplete" id="2Gu-mr-q0k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejZ-LO-AYO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2087" y="-99"/>
+            <point key="canvasLocation" x="2045" y="-112"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="MHK-LX-Wqq">
@@ -1561,9 +1562,10 @@ address information.</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Xyy-IZ-iAo"/>
-        <segue reference="f7v-us-3Po"/>
-        <segue reference="LPt-3G-Tqn"/>
+        <segue reference="Fep-Lz-k9P"/>
+        <segue reference="yjD-TH-VnT"/>
+        <segue reference="2Gu-mr-q0k"/>
+        <segue reference="bZz-wa-Fwx"/>
         <segue reference="zUV-MK-NDI"/>
         <segue reference="K7o-eR-EFv"/>
         <segue reference="2ig-UW-Gr1"/>

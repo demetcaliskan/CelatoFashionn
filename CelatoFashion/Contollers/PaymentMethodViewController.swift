@@ -9,11 +9,13 @@
 import UIKit
 
 class PaymentMethodViewController: UIViewController {
+
     @IBOutlet weak var transferButton: UIButton!
     @IBOutlet weak var deliveryPaymentButton: UIButton!
     
     let iban: String = "Some iban text"
     var userPaymentMethod: String = ""
+    var orders : [NotProduct] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,12 @@ class PaymentMethodViewController: UIViewController {
         
         userPaymentMethod = "Money transfer."
         
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "paymentToComplete" {
+            let vc = segue.destination as! CompleteOrderViewController
+            vc.orders = self.orders
+        }
     }
     
     @IBAction func deliveryPaymentButtonPressed(_ sender: UIButton)

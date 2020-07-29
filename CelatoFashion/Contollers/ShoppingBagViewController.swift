@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseStorage
 
 struct Product {
     var collectionViewName : String
@@ -55,6 +56,7 @@ class ShoppingBagViewController: UIViewController {
                 else {
                     print("id is \(id)")
                     let data = document?.data()
+                    let id = data!["id"] as! String
                     
                     let product = NotProduct(
                         name: data!["name"] as! String,
@@ -70,8 +72,23 @@ class ShoppingBagViewController: UIViewController {
                     total = price + total
                     self.totalLabel.text = "$" + String(total)
                     print("total is changed and now is \(total)")
-                    self.products.append(product)
-                    self.collectionView.reloadData()
+                    
+                    let storageRef = Storage.storage().reference()
+                    storageRef.child(id).getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+                        
+                        if let error = error {
+                            print("error happened \(error)")
+                        }
+                        else {
+                            
+                            let image = UIImage(data: data!)
+                            product.setImage(image: image!)
+                            self.products.append(product)
+                            self.collectionView.reloadData()
+                        }
+                    }
+                    
+                    
                 }
             }
         
@@ -79,9 +96,9 @@ class ShoppingBagViewController: UIViewController {
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "buyToComplete" {
+        if segue.identifier == "bagToPayment" {
             
-            let vc = segue.destination as! CompleteOrderViewController
+            let vc = segue.destination as! PaymentMethodViewController
             vc.orders = self.products
         }
     }
@@ -99,7 +116,7 @@ class ShoppingBagViewController: UIViewController {
             
             let email = userDefault.string(forKey: "email")
 
-            Firestore.firestore().collection("purchases").document("1").setData([
+            Firestore.firestore().collection("purchases").document(email!).setData([
                 "address": "Merhaba bu app'den gelecek adres şu an ise bu placeholder sadece",
                 "user": email!,
                 "order": addedProducts!
@@ -205,7 +222,7 @@ extension ShoppingBagViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! BagItemCollectionViewCell
         
-        cell.productImage.image = UIImage(named: items[indexPath.item].collectionViewName)
+        cell.productImage.image = products[indexPath.item].getImage()
         cell.delegate = self
         cell.productName.text = products[indexPath.item].getName()
         cell.productSize.text = products[indexPath.item].getSize()

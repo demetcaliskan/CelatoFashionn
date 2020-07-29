@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseFirestore
+import FirebaseStorage
 
 class SearchViewController: UIViewController, UISearchBarDelegate {
 
@@ -140,6 +141,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
                 for document in (snapshot?.documents)! {
 
                     let data = document.data()
+                    let id = data["id"] as! String
                     
                     let product = NotProduct(
                         name: data["name"] as! String,
@@ -153,15 +155,23 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
                     
                     print(document.data())
                     
-                    self.products.append(product)
-                    self.collectionView.reloadData()
+                    let storageRef = Storage.storage().reference()
+                    storageRef.child(id).getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+                        if let error = error {
+                            print("error occured \(error)")
+                        }
+                        else {
+                            
+                            let image = UIImage(data: data!)
+                            product.setImage(image: image!)
+                            self.products.append(product)
+                            self.collectionView.reloadData()
+                        }
+                    }
                 }
-                
             }
-            
         }
     }
-    
 }
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource
@@ -176,13 +186,13 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ItemCollectionViewCell
         if(searchActive == false) {
-            cell.itemImage.image = UIImage(named: items[indexPath.item].collectionViewName)
+            cell.itemImage.image = products[indexPath.item].getImage()
             cell.itemName.text = products[indexPath.item].getName()
             print("cell at \(indexPath.item) 's name is \(cell.itemName.text!)")
             cell.itemPrice.text = "$" + products[indexPath.item].getPrice()
             }
         else {
-            cell.itemImage.image = UIImage(named: items[indexPath.item].collectionViewName)
+            cell.itemImage.image = filteredProducts[indexPath.item].getImage()
             cell.itemName.text = filteredProducts[indexPath.item].getName()
             cell.itemPrice.text = "$" + filteredProducts[indexPath.item].getPrice()
         }

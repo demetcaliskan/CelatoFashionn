@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseFirestore
+import FirebaseStorage
 
 class ShowProductViewController: UIViewController {
     
@@ -24,9 +25,7 @@ class ShowProductViewController: UIViewController {
     
     @IBOutlet weak var priceLabel: UILabel!
     
-    var imgArray = [UIImage(named: "Product"),
-                    UIImage(named: "Product 2"),
-                    UIImage(named: "Product 3")]
+    var imgArray : [UIImage] = []
     
     let cellIdentifier = "ShowProductCollectionViewCell"
     var collectionViewFlowLayout : UICollectionViewFlowLayout!
@@ -151,7 +150,17 @@ class ShowProductViewController: UIViewController {
                 sButton.isHidden = true
                 mButton.isHidden = true
             }
-        
+        let storageRef = Storage.storage().reference()
+        storageRef.child(product.getId()).getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+            if let error = error{
+                print("error happened while retriving image \(error)")
+            }
+            else {
+                let image = UIImage(data: data!)
+                self.imgArray.append(image!)
+                self.collectionView.reloadData()
+            }
+        }
     }
     
     func btnDesign()
@@ -191,13 +200,11 @@ extension ShowProductViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+ 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ShowProductCollectionViewCell
         cell.image.image =  imgArray[indexPath.row]
-        
-
         return cell
     }
-    
     
 }
 func removeDuplicates(array : [String]) -> [String] {

@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseFirestore
+import FirebaseStorage
 
 struct Item
 {
@@ -33,11 +34,14 @@ class HomePageViewController: UIViewController {
                          Item(collectionViewName: "Product 1")]
     
    
+    var images: [UIImage] = []
+    
     
     var collectionViewFlowLayout : UICollectionViewFlowLayout!
     let cellIdentifier = "ItemCollectionViewCell"
     
     var products: [NotProduct] = []
+    var id = 0
 
     override func viewDidLoad()
     {
@@ -120,6 +124,7 @@ class HomePageViewController: UIViewController {
                 for document in (snapshot?.documents)! {
 
                     let data = document.data()
+                    let id = data["id"] as! String
                     
                     let product = NotProduct(
                         name: data["name"] as! String,
@@ -130,18 +135,44 @@ class HomePageViewController: UIViewController {
                         size: data["size"] as! String,
                         id: data["id"] as! String,
                         gender: data["gender"] as! String)
-                    
+
                     print(document.data())
-                    
-                    self.products.append(product)
-                    self.collectionView.reloadData()
+                    let storageRef = Storage.storage().reference()
+                    let pathReference = storageRef.child(id)
+                    pathReference.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+                        
+                        if let error = error {
+                            print("error occured \(error)")
+                        }
+                        else {
+                            let image = UIImage(data: data!)
+                            product.setImage(image: image!)
+                            self.products.append(product)
+                            self.collectionView.reloadData()
+                        }
+                    }
                 }
-                
             }
-            
         }
     }
-
+    func loadImages() {
+        let storageRef = Storage.storage().reference()
+        for i in 0...self.products.count - 1 {
+            let pathReferance = storageRef.child("\(i)")
+            print("path reference is \(pathReferance)")
+            pathReferance.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+                if let error = error {
+                    print("error occured \(error)")
+                }
+                else {
+                    print("??")
+                    let image = UIImage(data: data!)
+                    self.images.append(image!)
+                    self.collectionView.reloadData()
+                }
+            }
+        }
+    }
 }
 
 extension HomePageViewController: UITabBarDelegate
@@ -182,7 +213,7 @@ extension HomePageViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ItemCollectionViewCell
         
-        cell.itemImage.image = UIImage(named: items[indexPath.item].collectionViewName)
+        cell.itemImage.image = products[indexPath.item].getImage()
         cell.itemName.text = products[indexPath.item].getName()
         print("cell at \(indexPath.item) 's name is \(cell.itemName.text!)")
         cell.itemPrice.text = "$" + products[indexPath.item].getPrice()
