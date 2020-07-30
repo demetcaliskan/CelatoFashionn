@@ -14,7 +14,6 @@ class CategoryProductsViewController: UIViewController {
     
     
     @IBOutlet weak var navigationBarItem: UINavigationItem!
-    @IBOutlet weak var bagButton: UIBarButtonItem!
     @IBOutlet weak var tabBar: UITabBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -32,17 +31,19 @@ class CategoryProductsViewController: UIViewController {
     
     var products: [NotProduct] = []
     
+    //Total number of products in the bag
+    let bagItemSize = 5
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
         self.tabBar.delegate = self
-        collectionView.delegate = self
-        collectionView.dataSource = self
         let userDefault = UserDefaults.standard
         selectedCategory = userDefault.string(forKey: "selectedCategory")!
         print(selectedCategory)
         navigationBarItem.title = selectedCategory
         loadProducts()
+        bagButtonDesign()
         
     }
     
@@ -50,6 +51,29 @@ class CategoryProductsViewController: UIViewController {
     {
         super.viewWillLayoutSubviews()
         setupCollectionViewItemSize()
+    }
+    
+    @objc func bagButtonPressed()
+    {
+        performSegue(withIdentifier: "categoryToBag", sender: self)
+    }
+    
+    private func bagButtonDesign()
+    {
+        let button = UIButton()
+        button.setImage(UIImage(named: "bag2"), for: .normal)
+        button.setTitle(String(bagItemSize), for: .normal)
+        if button.currentTitle?.count == 1
+        {
+            button.titleEdgeInsets = UIEdgeInsets(top: 4, left: -32, bottom: 0, right: 0)
+        }
+        else
+        {
+            button.titleEdgeInsets = UIEdgeInsets(top: 4, left: -37, bottom: 0, right: 0)
+        }
+        button.setTitleColor(UIColor.darkGray, for: .normal)
+        button.addTarget(self, action: #selector(bagButtonPressed), for: .touchUpInside)
+        navigationBarItem.rightBarButtonItem = UIBarButtonItem(customView: button)
     }
     
     private func setupCollectionView()
@@ -147,8 +171,6 @@ class CategoryProductsViewController: UIViewController {
     @IBAction func backButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: "categoryListToShow", sender: self)
     }
-    
-
 }
 
 extension CategoryProductsViewController: UITabBarDelegate
@@ -175,6 +197,13 @@ extension CategoryProductsViewController: UITabBarDelegate
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "CategoryViewController") as! CategoryViewController
             self.present(nextViewController, animated:true, completion:nil)
             print("category bar item is selected")
+        }
+        if item.tag == 3
+        {
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AccountViewController") as! AccountViewController
+            self.present(nextViewController, animated:true, completion:nil)
+            print("account bar item is selected")
         }
     }
 }

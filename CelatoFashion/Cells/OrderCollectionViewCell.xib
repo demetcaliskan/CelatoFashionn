@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Display-Medium.otf">
+            <string>SFProDisplay-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="pPp-MC-5zI" customClass="OrderCollectionViewCell" customModule="CelatoFashion" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="290" height="176"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="290" height="176"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eEC-Ep-9no">
+                        <rect key="frame" x="0.0" y="0.0" width="290" height="176"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Rvc-Bk-w0h" userLabel="main stack view">
+                                <rect key="frame" x="0.0" y="0.0" width="290" height="176"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9yw-Ud-Lw5">
+                                        <rect key="frame" x="0.0" y="0.0" width="290" height="20"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="cqv-8c-kpC"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="PTM-OD-S5n">
+                                        <rect key="frame" x="0.0" y="20" width="290" height="136"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="leA-lR-b8e">
+                                                <rect key="frame" x="0.0" y="0.0" width="145" height="136"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123457" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wux-NI-Fb7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="145" height="26"/>
+                                                        <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="22"/>
+                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Product 1" translatesAutoresizingMaskIntoConstraints="NO" id="tj2-iK-YzF">
+                                                        <rect key="frame" x="0.0" y="31" width="145" height="105"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1xs-q0-DOL">
+                                                <rect key="frame" x="145" y="0.0" width="145" height="136"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CAm-d8-unH">
+                                                        <rect key="frame" x="0.0" y="0.0" width="145" height="68"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 July 2020" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bj-Vx-1oe">
+                                                                <rect key="frame" x="0.0" y="0.0" width="145" height="19.5"/>
+                                                                <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="18"/>
+                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1500" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6s-Dg-7rT">
+                                                                <rect key="frame" x="0.0" y="24.5" width="145" height="19"/>
+                                                                <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="20"/>
+                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 Product" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0C-CQ-ARF">
+                                                                <rect key="frame" x="0.0" y="48.5" width="145" height="19.5"/>
+                                                                <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="20"/>
+                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order being processed." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sJ-dq-m6U">
+                                                        <rect key="frame" x="0.0" y="68" width="145" height="68"/>
+                                                        <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="22"/>
+                                                        <color key="textColor" red="0.65098039220000004" green="0.48627450979999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Avr-qg-qFc">
+                                        <rect key="frame" x="0.0" y="156" width="290" height="20"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="vdD-GU-qUe"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Rvc-Bk-w0h" secondAttribute="bottom" id="B46-yO-2aJ"/>
+                            <constraint firstItem="Rvc-Bk-w0h" firstAttribute="top" secondItem="eEC-Ep-9no" secondAttribute="top" id="qRY-JX-fRC"/>
+                            <constraint firstItem="Rvc-Bk-w0h" firstAttribute="leading" secondItem="eEC-Ep-9no" secondAttribute="leading" id="rZG-dP-g5n"/>
+                            <constraint firstAttribute="trailing" secondItem="Rvc-Bk-w0h" secondAttribute="trailing" id="vLz-Ff-25c"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="eEC-Ep-9no" firstAttribute="bottom" secondItem="pPp-MC-5zI" secondAttribute="bottom" id="GQZ-qe-ozk"/>
+                <constraint firstItem="eEC-Ep-9no" firstAttribute="leading" secondItem="pPp-MC-5zI" secondAttribute="leading" id="L6G-dt-paA"/>
+                <constraint firstItem="eEC-Ep-9no" firstAttribute="top" secondItem="pPp-MC-5zI" secondAttribute="top" id="ONH-uX-DDt"/>
+                <constraint firstItem="eEC-Ep-9no" firstAttribute="trailing" secondItem="pPp-MC-5zI" secondAttribute="trailing" id="sWv-kz-oMp"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="buW-Ps-WhA"/>
+            <size key="customSize" width="290" height="176"/>
+            <connections>
+                <outlet property="numberOfOrders" destination="C0C-CQ-ARF" id="b2l-gJ-QkA"/>
+                <outlet property="orderDate" destination="0bj-Vx-1oe" id="rhl-is-m7I"/>
+                <outlet property="orderPicture" destination="tj2-iK-YzF" id="8lE-z4-hUy"/>
+                <outlet property="orderStatus" destination="8sJ-dq-m6U" id="JNQ-OR-clB"/>
+                <outlet property="orderTotalPrice" destination="o6s-Dg-7rT" id="Y6S-Xp-juR"/>
+                <outlet property="orderTrackNumber" destination="wux-NI-Fb7" id="u6z-I3-Mfs"/>
+            </connections>
+            <point key="canvasLocation" x="107.24637681159422" y="95.758928571428569"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Product 1" width="160" height="230"/>
+    </resources>
+</document>

@@ -236,6 +236,7 @@ extension ShoppingBagViewController: UICollectionViewDelegate, UICollectionViewD
         print("indexpath is \(indexPath!)")
     }
 }
+
 extension ShoppingBagViewController: BagItemCollectionViewCellDelegate
 {
     func delete(cell: BagItemCollectionViewCell) {

@@ -20,7 +20,7 @@ class HomePageViewController: UIViewController {
     @IBOutlet weak var celatoLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tabBar: UITabBar!
-    
+    @IBOutlet weak var bagButton: UIButton!
     
     
     var items : [Item] = [Item(collectionViewName: "Product 1"),
@@ -42,16 +42,31 @@ class HomePageViewController: UIViewController {
     
     var products: [NotProduct] = []
     var id = 0
+    
+    //Total number of products in the bag
+    let bagItemSize = 5
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
         setupCollectionView()
         self.tabBar.delegate = self
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        bagButtonDesign()
         loadProducts()
         
+    }
+    
+    private func bagButtonDesign()
+    {
+        bagButton.setTitle(String(bagItemSize), for: .normal)
+        if bagButton.currentTitle?.count == 1
+        {
+            bagButton.titleEdgeInsets = UIEdgeInsets(top: 4, left: -32, bottom: 0, right: 0)
+        }
+        else
+        {
+            bagButton.titleEdgeInsets = UIEdgeInsets(top: 4, left: -37, bottom: 0, right: 0)
+        }
     }
     
     override func viewWillLayoutSubviews()
@@ -199,6 +214,13 @@ extension HomePageViewController: UITabBarDelegate
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "CategoryViewController") as! CategoryViewController
             self.present(nextViewController, animated:true, completion:nil)
             print("category bar item is selected")
+        }
+        if item.tag == 3
+        {
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AccountViewController") as! AccountViewController
+            self.present(nextViewController, animated:true, completion:nil)
+            print("account bar item is selected")
         }
     }
 }
